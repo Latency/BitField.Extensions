@@ -11,20 +11,20 @@ namespace BitFields {
   /// <summary>
   ///   The BisField class exposes the following methods:
   ///   Initialization:
-  ///   BitField()		// Constructor
-  ///   ClearField()	// ClearField clears all contents of the Field
-  ///   FillField()		// FillField fills all contents of the Field
-  ///   SetField()		// Setting the specified flag and turning all other flags off.
+  ///   BitField()      // Constructor
+  ///   ClearField()    // ClearField clears all contents of the Field
+  ///   FillField()     // FillField fills all contents of the Field
+  ///   SetField()      // Setting the specified flag and turning all other flags off.
   ///   Operations:
-  ///   SetOn()			// Setting the specified flag and leaving all other flags unchanged
-  ///   SetOff()		// Unsetting the specified flag and leaving all other flags unchanged.
-  ///   SetToggle()		// Toggling the specified flag and leaving all other bits unchanged.
-  ///   IsOn			// IsOn checks if the specified flag is set/on in the Field.
+  ///   SetOn()         // Setting the specified flag and leaving all other flags unchanged
+  ///   SetOff()        // Unsetting the specified flag and leaving all other flags unchanged.
+  ///   SetToggle()     // Toggling the specified flag and leaving all other bits unchanged.
+  ///   IsOn            // IsOn checks if the specified flag is set/on in the Field.
   ///   Conversion:
-  ///   DecimalToFlag	// Convert a decimal value to a Flag FlagsAttribute value.
-  ///   ToStringDec()	// Return a string representation of the Field in decimal (base 10) notation
-  ///   ToStringHex()	// Return a string representation of the Field in hexidecimal (base 16) notation.
-  ///   ToStringBin()	// Return a string representation of the Field in binary (base 2) notation.
+  ///   DecimalToFlag   // Convert a decimal value to a Flag FlagsAttribute value.
+  ///   ToStringDec()   // Return a string representation of the Field in decimal (base 10) notation
+  ///   ToStringHex()   // Return a string representation of the Field in hexidecimal (base 16) notation.
+  ///   ToStringBin()   // Return a string representation of the Field in binary (base 2) notation.
   /// </summary>
   public class BitField {
     /// <summary>
