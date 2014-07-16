@@ -1,4 +1,5 @@
-﻿using System;
+﻿#if DEBUG
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
@@ -262,7 +263,7 @@ namespace BitFields {
       // 
       // buttonRevert
       // 
-      this.buttonRevert.Location = new System.Drawing.Point(296, 376);
+      this.buttonRevert.Location = new System.Drawing.Point(500, 280);
       this.buttonRevert.Name = "buttonRevert";
       this.buttonRevert.Size = new System.Drawing.Size(96, 23);
       this.buttonRevert.TabIndex = 33;
@@ -290,15 +291,15 @@ namespace BitFields {
       this.comboBoxHistory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
       this.comboBoxHistory.Enabled = false;
       this.comboBoxHistory.FormattingEnabled = true;
-      this.comboBoxHistory.Location = new System.Drawing.Point(477, 279);
+      this.comboBoxHistory.Location = new System.Drawing.Point(296, 376);
       this.comboBoxHistory.Name = "comboBoxHistory";
-      this.comboBoxHistory.Size = new System.Drawing.Size(211, 21);
+      this.comboBoxHistory.Size = new System.Drawing.Size(392, 21);
       this.comboBoxHistory.TabIndex = 36;
       // 
       // label10
       // 
       this.label10.AutoSize = true;
-      this.label10.Location = new System.Drawing.Point(577, 256);
+      this.label10.Location = new System.Drawing.Point(255, 379);
       this.label10.Name = "label10";
       this.label10.Size = new System.Drawing.Size(33, 13);
       this.label10.TabIndex = 37;
@@ -482,3 +483,4 @@ namespace BitFields {
     private ComboBox comboBoxHistory;
   }
 }
+#endif

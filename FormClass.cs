@@ -4,6 +4,7 @@
 // * Author:   Latency McLaughlin
 // * Date:     07/15/2014
 // ****************************************************************************
+#if DEBUG
 using System;
 using System.Linq;
 using System.Reflection;
@@ -85,7 +86,8 @@ namespace BitFields {
           _bitField.ClearField();
           break;
         case "Fill": // Fill the bit Field by turning all flags on.
-          _bitField.FillField();
+          foreach (var c in Controls.OfType<CheckBox>())
+            _bitField.SetOn((Flag) c.Tag);
           break;
         case "AddFlag": // Add the specified flag to the bitField.
           _bitField.SetOn(BitField.DecimalToFlag(numericUpDown1.Value));
@@ -162,3 +164,4 @@ namespace BitFields {
     }
   }
 }
+#endif
