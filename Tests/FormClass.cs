@@ -4,15 +4,16 @@
 // * Author:   Latency McLaughlin
 // * Date:     07/15/2014
 // ****************************************************************************
+
 using System;
 using System.Drawing;
 using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
 using AssemblyInfo;
+using BitFields;
 
-
-namespace BitFields {
+namespace Tests {
   /// <summary>
   ///   Summary description for FormClass.
   /// </summary>
@@ -57,56 +58,29 @@ namespace BitFields {
       foreach (var c in Controls.OfType<CheckBox>())
         c.Tag = (Flag) Enum.Parse(typeof (Flag), 'F' + c.Name.Substring("chcekBox".Length));
 
-      Redraw(true);
-      richTextBoxMask.Text = RedrawMask(_bitField);
+      Redraw(_bitField, true);
     }
 
     /// <summary>
     ///   Update the Field strings
     /// </summary>
-    private void Redraw(bool top) {
-      var ctx = top ? new[] { textBoxDec, textBoxHex, textBoxBin } : new[] { textBoxDecHistory, textBoxHexHistory, textBoxBinHistory };
-      ctx[0].Text = _bitField.ToString.Decimal();
-      ctx[1].Text = _bitField.ToString.Hex();
-      ctx[2].Text = _bitField.ToString.Binary().PadLeft(64, '0');
-    }
-
-    /// <summary>
-    ///   If flag is set then check the checkbox
-    /// </summary>
-    /// <param name="flag"></param>
-    /// <param name="cb"></param>
-    private void SetFlags(Flag flag, CheckBox cb) {
-      // if flag is set ensure the box is checked
-      cb.Checked = _bitField.IsSet(flag);
+    private void Redraw(BitField bitfield, bool top) {
+      var ctx = top ? new Control[] { textBoxDec, textBoxHex, textBoxBin, richTextBoxMask }
+                    : new Control[] { textBoxDecHistory, textBoxHexHistory, textBoxBinHistory, richTextBoxHistory };
+      ctx[0].Text = bitfield.ToString.Decimal();
+      ctx[1].Text = bitfield.ToString.Hex();
+      ctx[2].Text = bitfield.ToString.Binary().PadLeft(64, '0');
+      ctx[3].Text = EnumExtensions.GetAllSelectedItems<Flag>(bitfield.Mask).ToList().Aggregate(
+        String.Empty, (current, enm) => current + ((current.Length > 0 ? " | " : String.Empty) + enm.GetEnumDescription())
+      );
     }
 
     /// <summary>
     ///   Iterate for each checkbox and ensure it is in the proper state
     /// </summary>
-    private void RedrawCheckBox() {
-      foreach (var c in Controls.OfType<CheckBox>())
-        SetFlags((Flag) c.Tag, c);
-    }
-
-    /// <summary>
-    ///   Updates a control with the enum flags set.
-    /// </summary>
-    /// <param name="hBitField"></param>
-    /// <returns></returns>
-    private static String RedrawMask(BitField hBitField) {
-      // For ComboBox
-      //var dataSource = EnumExtensions.GetAllSelectedItems<Flag>(hBitField.Mask).Where(enm => (int) enm != 0 || EnumExtensions.GetAllSelectedItems<Flag>(hBitField.Mask).Count() <= 1).Select(enm => enm.GetEnumDescription()).ToList();
-      var collection = EnumExtensions.GetAllSelectedItems<Flag>(hBitField.Mask).ToList();
-      var count = collection.Count();
-      foreach (var enm in collection) {
-        if (enm != 0 || count <= 1) {
-          
-        }
-      }
-      return collection
-        .Where(enm => (int) enm != 0 || collection.Count() <= 1)
-        .Aggregate(String.Empty, (current, enm) => current + ((current.Length > 0 ? " | " : String.Empty) + enm.GetEnumDescription()));
+    private void RedrawCheckBoxes() {
+      foreach (var c in splitContainer1.Panel1.Controls.OfType<CheckBox>())
+        c.Checked = _bitField.IsSet((Flag) c.Tag);
     }
 
     /// <summary>
@@ -114,14 +88,15 @@ namespace BitFields {
     /// </summary>
     /// <param name="bm"></param>
     private void AddToHistory(BitField bm) {
-      //Add this item to history
       listBoxHistory.Items.Insert(0, bm.ToString.Decimal());
-      listBoxHistory.SelectedIndex = 0;
+      // TODO:  Fix event triggering duplicate invocation
+      //listBoxHistory.SelectedIndex = 0;
     }
 
     #region Events
 
     /// <summary>
+    ///  Events for button clicks.
     /// </summary>
     /// <param name="sender"></param>
     /// <param name="e"></param>
@@ -144,28 +119,21 @@ namespace BitFields {
           throw new ArgumentException("Button must be named 'button[Clear|Fill|AddFlag|RemoveFlag]'");
       }
       AddToHistory(_bitField);
-      richTextBoxMask.Text = RedrawMask(_bitField);
-      RedrawCheckBox();
-      Redraw(true);
+      RedrawCheckBoxes();
+      Redraw(_bitField, true);
     }
 
     /// <summary>
-    ///   Methods to toggle the flag when the check box changes
+    ///   Methods to toggle the flag when the check box changes.
     /// </summary>
     /// <param name="sender"></param>
     /// <param name="e"></param>
     private void Check_Changed(object sender, EventArgs e) {
-      var cb = sender as CheckBox;
-      if (cb != null) {
-        var enm = (Flag) cb.Tag;
-        //Check if toggle is required
-        if (_bitField.IsSet(enm) != cb.Checked) {
-          _bitField.Toggle(enm);
-          AddToHistory(_bitField);
-        }
-      }
-      Redraw(true);
-      richTextBoxMask.Text = RedrawMask(_bitField);
+      var cb = (CheckBox) sender;
+      var enm = (Flag) cb.Tag;
+      _bitField.Toggle(enm);
+      AddToHistory(_bitField);
+      Redraw(_bitField, true);
     }
 
     /// <summary>
@@ -179,22 +147,23 @@ namespace BitFields {
         return;
 
       var hBitField = new BitField { Mask = Convert.ToUInt64(sVal, 10) };
-      richTextBoxHistory.Text = RedrawMask(hBitField);
 
       switch (((Control) sender).Name.Substring("button".Length)) {
         case "Revert": // Refresh top pane
+          // Restore current mask.
           _bitField = hBitField;
-          RedrawCheckBox();
-          richTextBoxMask.Text = RedrawMask(_bitField);
-          Redraw(true);
           // Remove previous history states
           while (listBoxHistory.SelectedIndex != 0)
             listBoxHistory.Items.RemoveAt(0);
+          // Redraw controls
+          RedrawCheckBoxes();
+          Redraw(hBitField, true);
           break;
         default:
-          Redraw(false);
+          Redraw(hBitField, false);
           break;
       }
+      buttonRevert.Visible = (_bitField.Mask != hBitField.Mask);
     }
 
     #endregion Events

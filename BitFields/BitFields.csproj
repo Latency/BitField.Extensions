@@ -16,10 +16,11 @@
     <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
     <DefaultTargetSchema>IE50</DefaultTargetSchema>
     <DelaySign>false</DelaySign>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Library</OutputType>
     <RootNamespace>BitFields</RootNamespace>
     <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
-    <StartupObject>BitFields.Program</StartupObject>
+    <StartupObject>
+    </StartupObject>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
@@ -89,12 +90,6 @@
     <Reference Include="System">
       <Name>System</Name>
     </Reference>
-    <Reference Include="System.Drawing">
-      <Name>System.Drawing</Name>
-    </Reference>
-    <Reference Include="System.Windows.Forms">
-      <Name>System.Windows.Forms</Name>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BitField.cs">
@@ -102,18 +97,8 @@
     </Compile>
     <Compile Include="EnumExtensions.cs" />
     <Compile Include="Flags.cs" />
-    <Compile Include="FormClass.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormClass.Designer.cs">
-      <DependentUpon>FormClass.cs</DependentUpon>
-    </Compile>
     <Compile Include="IFluentInterface.cs" />
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FormClass.resx">
-      <DependentUpon>FormClass.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
@@ -128,23 +113,9 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
-    <None Include="LICENSE" />
     <None Include="packages.config" />
-    <None Include="README.md" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\AssemblyInfo\AssemblyInfo\AssemblyInfo.csproj">
-      <Project>{958560db-a618-486d-8cf3-a6456c4482b1}</Project>
-      <Name>AssemblyInfo</Name>
-      <Private>True</Private>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include=".gitignore" />
-  </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath)\Ilmerge.CSharp.targets" />
-  <!-- <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" /> -->
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent />
     <PostBuildEvent />

@@ -1,12 +1,7 @@
-﻿#if DEBUG
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Text;
+﻿using System.ComponentModel;
 using System.Windows.Forms;
 
-
-namespace BitFields {
+namespace Tests {
   public sealed partial class FormClass {
     /// <summary>
     ///   Required designer variable.
@@ -86,8 +81,8 @@ namespace BitFields {
       this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
       this.splitContainer1.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
       this.splitContainer1.Panel2MinSize = 125;
-      this.splitContainer1.Size = new System.Drawing.Size(960, 418);
-      this.splitContainer1.SplitterDistance = 330;
+      this.splitContainer1.Size = new System.Drawing.Size(968, 420);
+      this.splitContainer1.SplitterDistance = 332;
       this.splitContainer1.TabIndex = 92;
       // 
       // groupBox1
@@ -97,7 +92,7 @@ namespace BitFields {
       this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.System;
       this.groupBox1.Location = new System.Drawing.Point(0, 0);
       this.groupBox1.Name = "groupBox1";
-      this.groupBox1.Size = new System.Drawing.Size(142, 414);
+      this.groupBox1.Size = new System.Drawing.Size(142, 416);
       this.groupBox1.TabIndex = 63;
       this.groupBox1.TabStop = false;
       this.groupBox1.Text = "History";
@@ -108,7 +103,7 @@ namespace BitFields {
       this.listBoxHistory.Dock = System.Windows.Forms.DockStyle.Fill;
       this.listBoxHistory.Location = new System.Drawing.Point(3, 16);
       this.listBoxHistory.Name = "listBoxHistory";
-      this.listBoxHistory.Size = new System.Drawing.Size(136, 395);
+      this.listBoxHistory.Size = new System.Drawing.Size(136, 397);
       this.listBoxHistory.TabIndex = 38;
       this.listBoxHistory.SelectedIndexChanged += new System.EventHandler(this.History_Click);
       // 
@@ -116,11 +111,11 @@ namespace BitFields {
       // 
       this.splitContainer2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
       this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Right;
-      this.splitContainer2.Location = new System.Drawing.Point(142, 0);
+      this.splitContainer2.Location = new System.Drawing.Point(145, 0);
       this.splitContainer2.Name = "splitContainer2";
-      this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;      
-      this.splitContainer2.Size = new System.Drawing.Size(480, 300);
-      this.splitContainer2.SplitterDistance = 215;
+      this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
+      this.splitContainer2.Size = new System.Drawing.Size(483, 416);
+      this.splitContainer2.SplitterDistance = 232;
       this.splitContainer2.TabIndex = 62;
       // 
       // splitContainer2.Panel1
@@ -156,6 +151,7 @@ namespace BitFields {
       // richTextBoxMask
       // 
       this.richTextBoxMask.DetectUrls = false;
+      this.richTextBoxMask.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
       this.richTextBoxMask.Location = new System.Drawing.Point(80, 105);
       this.richTextBoxMask.Name = "richTextBoxMask";
       this.richTextBoxMask.ReadOnly = true;
@@ -285,6 +281,7 @@ namespace BitFields {
       // richTextBoxHistory
       // 
       this.richTextBoxHistory.DetectUrls = false;
+      this.richTextBoxHistory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
       this.richTextBoxHistory.Location = new System.Drawing.Point(80, 105);
       this.richTextBoxHistory.Name = "richTextBoxHistory";
       this.richTextBoxHistory.ReadOnly = true;
@@ -309,6 +306,7 @@ namespace BitFields {
       this.buttonRevert.Size = new System.Drawing.Size(101, 23);
       this.buttonRevert.TabIndex = 56;
       this.buttonRevert.Text = "▲ Revert Back ▲";
+      this.buttonRevert.Visible = false;
       this.buttonRevert.Click += new System.EventHandler(this.History_Click);
       // 
       // textBoxDecHistory
@@ -366,7 +364,7 @@ namespace BitFields {
       // FormClass
       // 
       this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
-      this.ClientSize = new System.Drawing.Size(960, 418);
+      this.ClientSize = new System.Drawing.Size(968, 420);
       this.Controls.Add(this.splitContainer1);
       this.MinimumSize = new System.Drawing.Size(976, 457);
       this.Name = "FormClass";
@@ -414,4 +412,3 @@ namespace BitFields {
 
   }
 }
-#endif

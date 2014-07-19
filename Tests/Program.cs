@@ -1,15 +1,14 @@
 ﻿// ****************************************************************************
-// * Project:  BitFields
+// * Project:  Tests
 // * File:     Program.cs
 // * Author:   Latency McLaughlin
 // * Date:     07/15/2014
 // ****************************************************************************
-#if DEBUG
 using System;
 using System.Threading;
 using System.Windows.Forms;
 
-namespace BitFields {
+namespace Tests {
   internal class Program {
     /// <summary>
     ///   The main entry point for the application.
@@ -33,4 +32,3 @@ namespace BitFields {
     }
   }
 }
-#endif

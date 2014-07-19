@@ -1,4 +1,13 @@
-﻿using System;
+﻿// ****************************************************************************
+// * Project:  Tests
+// * File:     t_EnumExtensions.cs
+// * Author:   Latency McLaughlin
+// * Date:     07/18/2014
+// ****************************************************************************
+
+using System;
+using System.Linq;
+using BitFields;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Tests {
@@ -9,7 +18,7 @@ namespace Tests {
     public void GetAllItems() {
       var collectionA = Flag.F1.GetAllItems<Flag>().ToList();
       Assert.AreEqual(65, collectionA.Count());
-      
+
       var collectionB = EnumExtensions.GetAllItems<Flag>().ToList();
       Assert.AreEqual(65, collectionB.Count());
 
@@ -17,19 +26,6 @@ namespace Tests {
       foreach (var enm in collectionB)
         Console.WriteLine(enm.GetEnumDescription());
 #endif
-    }
-
-    /// <summary>
-    ///   Create dummy enum to test against internal mapping of values and descriptions accordingly.
-    /// </summary>
-    [Flags]
-    enum MyEnum {
-      Test0 = (1 << 0),
-      Test1 = (1 << 1),
-      Test2 = (1 << 2),
-      Test3 = (1 << 3),
-      Test4 = (1 << 4),
-      Test5 = (1 << 5)
     }
 
     [TestMethod]
@@ -82,14 +78,27 @@ namespace Tests {
     public void Contains() {
       Assert.IsFalse(MyEnum.Test1.Contains(MyEnum.Test0));
       Assert.IsTrue(MyEnum.Test3.Contains(MyEnum.Test3));
-      Assert.IsTrue(EnumExtensions.Contains(5, MyEnum.Test0 | MyEnum.Test2));
-      Assert.IsTrue(EnumExtensions.Contains(5, MyEnum.Test0));
-      Assert.IsFalse(EnumExtensions.Contains(5, MyEnum.Test1));
+      Assert.IsTrue(EnumExtensions.Contains(5UL, MyEnum.Test0 | MyEnum.Test2));
+      Assert.IsTrue(EnumExtensions.Contains(5UL, MyEnum.Test0));
+      Assert.IsFalse(EnumExtensions.Contains(5UL, MyEnum.Test1));
     }
 
     [TestMethod]
     public void GetEnumDescription() {
       Assert.AreEqual("Test1", MyEnum.Test1.GetEnumDescription());
+    }
+
+    /// <summary>
+    ///   Create dummy enum to test against internal mapping of values and descriptions accordingly.
+    /// </summary>
+    [Flags]
+    private enum MyEnum {
+      Test0 = (1 << 0),
+      Test1 = (1 << 1),
+      Test2 = (1 << 2),
+      Test3 = (1 << 3),
+      Test4 = (1 << 4),
+      Test5 = (1 << 5)
     }
   }
 }
