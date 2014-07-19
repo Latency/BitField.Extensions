@@ -6,8 +6,8 @@
     <ProjectGuid>{3AAF7DAE-954A-45A1-B843-5821C2955A2D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BitFields_Test</RootNamespace>
-    <AssemblyName>BitFields_Test</AssemblyName>
+    <RootNamespace>Tests</RootNamespace>
+    <AssemblyName>t_BitFields</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -55,7 +55,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BitFields.csproj">
+    <ProjectReference Include="..\BitFields\BitFields.csproj">
       <Project>{2b02918b-e2f4-448a-9b21-973f95dea9d2}</Project>
       <Name>BitFields</Name>
     </ProjectReference>

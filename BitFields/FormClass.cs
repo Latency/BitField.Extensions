@@ -4,8 +4,6 @@
 // * Author:   Latency McLaughlin
 // * Date:     07/15/2014
 // ****************************************************************************
-
-#if DEBUG
 using System;
 using System.Drawing;
 using System.Linq;
@@ -202,4 +200,3 @@ namespace BitFields {
     #endregion Events
   }
 }
-#endif

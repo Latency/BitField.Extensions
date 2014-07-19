@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BitFields", "BitFields.csproj", "{2B02918B-E2F4-448A-9B21-973F95DEA9D2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BitFields", "BitFields\BitFields.csproj", "{2B02918B-E2F4-448A-9B21-973F95DEA9D2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssemblyInfo", "..\AssemblyInfo\AssemblyInfo\AssemblyInfo.csproj", "{958560DB-A618-486D-8CF3-A6456C4482B1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BitFields_Test", "Tests\BitFields_Test.csproj", "{3AAF7DAE-954A-45A1-B843-5821C2955A2D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{3AAF7DAE-954A-45A1-B843-5821C2955A2D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

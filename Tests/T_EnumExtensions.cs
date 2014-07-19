@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Linq;
-using BitFields;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace BitFields_Test {
+namespace Tests {
   [TestClass]
   // ReSharper disable once InconsistentNaming
   public class t_EnumExtensions {

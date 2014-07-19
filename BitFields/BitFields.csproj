@@ -134,7 +134,7 @@
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AssemblyInfo\AssemblyInfo\AssemblyInfo.csproj">
+    <ProjectReference Include="..\..\AssemblyInfo\AssemblyInfo\AssemblyInfo.csproj">
       <Project>{958560db-a618-486d-8cf3-a6456c4482b1}</Project>
       <Name>AssemblyInfo</Name>
       <Private>True</Private>
