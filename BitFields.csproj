@@ -108,6 +108,7 @@
     <Compile Include="FormClass.Designer.cs">
       <DependentUpon>FormClass.cs</DependentUpon>
     </Compile>
+    <Compile Include="IFluentInterface.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormClass.resx">
@@ -129,6 +130,7 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="LICENSE" />
+    <None Include="packages.config" />
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>

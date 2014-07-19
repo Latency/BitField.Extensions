@@ -11,6 +11,7 @@ namespace BitFields {
   /// <summary>
   ///   The BisField class exposes the following methods:
   ///   Initialization:
+  ///   ------------------
   ///   BitField()      // Constructor
   ///   ClearField()    // ClearField clears all contents of the Field
   ///   FillField()     // FillField fills all contents of the Field
@@ -18,21 +19,28 @@ namespace BitFields {
   ///   Operations:
   ///   SetOn()         // Setting the specified flag and leaving all other flags unchanged
   ///   SetOff()        // Unsetting the specified flag and leaving all other flags unchanged.
-  ///   SetToggle()     // Toggling the specified flag and leaving all other bits unchanged.
-  ///   IsOn            // IsOn checks if the specified flag is set/on in the Field.
+  ///   Toggle()        // Toggling the specified flag and leaving all other bits unchanged.
+  ///   IsSet            // IsSet checks if the specified flag is set/on in the Field.
+  ///
   ///   Conversion:
-  ///   DecimalToFlag   // Convert a decimal value to a Flag FlagsAttribute value.
-  ///   ToStringDec()   // Return a string representation of the Field in decimal (base 10) notation
-  ///   ToStringHex()   // Return a string representation of the Field in hexidecimal (base 16) notation.
-  ///   ToStringBin()   // Return a string representation of the Field in binary (base 2) notation.
+  ///   -----------------------
+  ///   DecimalToFlag        // Convert a decimal value to a Flag FlagsAttribute value.
+  ///   ToString.Decimal()   // Return a string representation of the Field in decimal (base 10) notation
+  ///   ToString.Hex()       // Return a string representation of the Field in hexidecimal (base 16) notation.
+  ///   ToString.Binary()    // Return a string representation of the Field in binary (base 2) notation.
   /// </summary>
-  public class BitField {
+  public class BitField : IFluentInterface {
     /// <summary>
     ///   Contructor
     ///   Add all initialization here
     /// </summary>
     public BitField() {
       ClearField();
+      ToString = new ToStringSwitchBoard(this);
+    }
+
+    public BitField(ulong mask) {
+      Mask = mask;
     }
 
     /// <summary>
@@ -113,32 +121,21 @@ namespace BitFields {
     ///   1 ^ 1 = 0
     /// </example>
     /// <param name="flg">The flag to toggle in Field</param>
-    public void SetToggle(Flag flg) {
+    public void Toggle(Flag flg) {
       Mask ^= (ulong) flg;
     }
 
     /// <summary>
-    ///   AnyOn checks if any of the specified flag are set/on in the Field.
+    ///   Checks if any/all of the specified flags are set/on in the Field.
     /// </summary>
-    /// <param name="flg">flag(s) to check</param>
+    /// <param name="flg"></param>
+    /// <param name="compareAll"></param>
     /// <returns>
-    ///   true if flag is set in Field
+    ///   true if flag(s) is set in Field
     ///   false otherwise
     /// </returns>
-    public bool AnyOn(Flag flg) {
-      return (Mask & (ulong) flg) != 0;
-    }
-
-    /// <summary>
-    ///   AllOn checks if all the specified flags are set/on in the Field.
-    /// </summary>
-    /// <param name="flg">flag(s) to check</param>
-    /// <returns>
-    ///   true if all flags are set in Field
-    ///   false otherwise
-    /// </returns>
-    public bool AllOn(Flag flg) {
-      return (Mask & (ulong) flg) == (ulong) flg;
+    public bool IsSet(Flag flg, bool compareAll = false) {
+      return (!compareAll ? (Mask & (ulong) flg) != 0 : (Mask & (ulong) flg) == (ulong) flg);
     }
 
     /// <summary>
@@ -174,26 +171,45 @@ namespace BitFields {
       return flg;
     }
 
-    /// <summary>
-    ///   Return a string representation of the Field in
-    ///   decimal (base10) notation.
-    /// </summary>
-    public String ToStringDec() {
-      return String.Format("{0}", Mask);
+    // ///////////////////////////////////////////////////////////////////////////////
+    // ToString override | Union 3-ways
+    // ///////////////////////////////////////////////////////////////////////////////
+    public interface IToString : IFluentInterface {
+      String Decimal();
+      String Hex();
+      String Binary();
     }
 
-    /// <summary>
-    ///   Return a string representation of the Field in hexidecimal (base16) notation.
-    /// </summary>
-    public String ToStringHex() {
-      return String.Format("{0:x16}", Mask).ToUpper();
+    public new IToString ToString;
+
+    private class ToStringSwitchBoard : IToString {
+      private readonly BitField _bitField;
+
+      public ToStringSwitchBoard(BitField bitField) {
+        _bitField = bitField;
+      }
+
+      /// <summary>
+      ///   Return a string representation of the Field in decimal (base10) notation.
+      /// </summary>
+      public String Decimal() {
+        return String.Format("{0}", _bitField.Mask);
+      }
+
+      /// <summary>
+      ///   Return a string representation of the Field in hexidecimal (base16) notation.
+      /// </summary>
+      public String Hex() {
+        return String.Format("{0:x16}", _bitField.Mask).ToUpper();
+      }
+
+      /// <summary>
+      ///   Return a string representation of the Field in binary (base2) notation.
+      /// </summary>
+      public String Binary() {
+        return Convert.ToString((Int64) _bitField.Mask, 2);
+      }
     }
 
-    /// <summary>
-    ///   Return a string representation of the Field in binary (base2) notation.
-    /// </summary>
-    public String ToStringBin() {
-      return Convert.ToString((long) Mask, 2); //binary
-    }
   }
 }

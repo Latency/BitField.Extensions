@@ -9,6 +9,7 @@
 
 using System.Reflection;
 using System.Runtime.InteropServices;
+using System.Resources;
 
 #endregion
 
@@ -17,12 +18,12 @@ using System.Runtime.InteropServices;
 // associated with an assembly.
 
 [assembly: AssemblyTitle("BitFields")]
-[assembly: AssemblyDescription(".NET library for enum extensions")]
+[assembly: AssemblyDescription(".NET Library For Enum Extensions")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Bio-Hazard Industries")]
 [assembly: AssemblyProduct("BitFields.Properties")]
-[assembly: AssemblyCopyright("2014")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCopyright("Copyright © 2014")]
+[assembly: AssemblyTrademark("Latency McLaughlin")]
 [assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible 
@@ -44,4 +45,5 @@ using System.Runtime.InteropServices;
 //
 
 [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyFileVersion("1.0.0.2")]
+[assembly: AssemblyFileVersion("1.0.0.3")]
+[assembly: NeutralResourcesLanguageAttribute("en-US")]

@@ -18,7 +18,7 @@ namespace BitFields {
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="value">The value.</param>
-    public static IEnumerable<T> GetAllItems<T>(this Enum value) {
+    public static IEnumerable<T> GetAllItems<T>(this Enum value) where T : struct {
       return from object item in Enum.GetValues(typeof (T)) select (T) item;
     }
 
@@ -35,28 +35,26 @@ namespace BitFields {
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="value">The value.</param>
-    /// <returns></returns>
-    /// <example>
-    ///   Displays ValueA and ValueB.
-    ///   <code>
-    ///     EnumExample dummy = EnumExample.Combi;
-    ///     foreach (var item in dummy.GetAllSelectedItems<EnumExample>())
-    ///       Console.WriteLine(item);
-    ///   </code>
-    /// </example>
-    public static IEnumerable<T> GetAllSelectedItems<T>(this Enum value) {
+    /// <returns>A collection of enums</returns>
+    public static IEnumerable<T> GetAllSelectedItems<T>(this Enum value) where T : struct {
       var valueAsInt = Convert.ToUInt64(value, CultureInfo.InvariantCulture);
       return GetAllSelectedItems<T>(valueAsInt);
     }
 
-    public static IEnumerable<T> GetAllSelectedItems<T>(ulong value) {
-      return from object item in Enum.GetValues(typeof (T)) let itemAsInt = Convert.ToUInt64(item, CultureInfo.InvariantCulture) where itemAsInt == (value & itemAsInt) select (T) item;
+    // Compare All
+    public static IEnumerable<T> GetAllSelectedItems<T>(ulong value) where T : struct {
+      var bitfield = new BitField(value);
+      for (var idx = 0; idx < 64; idx++) {
+        var flag = (Flag) Enum.Parse(typeof (Flag), "F" + (idx + 1));
+        if (bitfield.IsSet(flag, true))
+          yield return (T) Enum.Parse(typeof(T), ((uint) flag).ToString(CultureInfo.InvariantCulture));
+      }
     }
 
     /// <summary>
     ///   Determines whether the enum value contains a specific value.
     /// </summary>
-    /// <param name="value">The value.</param>
+    /// <param name="mask">The value.</param>
     /// <param name="request">The request.</param>
     /// <returns>
     ///   <c>true</c> if value contains the specified value; otherwise, <c>false</c>.
@@ -64,14 +62,17 @@ namespace BitFields {
     /// <example>
     ///   <code>
     ///     EnumExample dummy = EnumExample.Combi;
-    ///     if (dummy.Contains<EnumExample>(EnumExample.ValueA))
+    ///     if (dummy.Contains(EnumExample.ValueA))
     ///       Console.WriteLine("dummy contains EnumExample.ValueA");
     ///   </code>
     /// </example>
-    public static bool Contains<T>(this Enum value, T request) {
-      var valueAsInt = Convert.ToInt32(value, CultureInfo.InvariantCulture);
-      var requestAsInt = Convert.ToInt32(request, CultureInfo.InvariantCulture);
-      return requestAsInt == (valueAsInt & requestAsInt);
+    public static bool Contains<T>(this Enum mask, T request) where T : struct {
+      return Contains(Convert.ToUInt64(mask, CultureInfo.InvariantCulture), request);
+    }
+
+    // Contains Any
+    public static bool Contains<T>(ulong value, T request) where T : struct {
+      return new BitField(value).IsSet((Flag) Convert.ToUInt64(request, CultureInfo.InvariantCulture), true);
     }
 
     /// <summary>
@@ -80,8 +81,7 @@ namespace BitFields {
     /// <param name="value"></param>
     /// <returns>A string of the official spelling of the enum name.</returns>
     public static string GetEnumDescription(this Enum value) {
-      var fi = value.GetType().GetField(value.ToString());
-      var attributes = (DescriptionAttribute[]) fi.GetCustomAttributes(typeof (DescriptionAttribute), false);
+      var attributes = (DescriptionAttribute[]) value.GetType().GetField(value.ToString()).GetCustomAttributes(typeof(DescriptionAttribute), false);
       return attributes.Length > 0 ? attributes[0].Description : value.ToString();
     }
   }

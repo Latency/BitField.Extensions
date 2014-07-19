@@ -32,124 +32,192 @@ namespace BitFields {
     ///   the contents of this method with the code editor.
     /// </summary>
     private void InitializeComponent() {
-      this.textBoxHex = new System.Windows.Forms.TextBox();
-      this.label1 = new System.Windows.Forms.Label();
-      this.label2 = new System.Windows.Forms.Label();
-      this.textBoxDec = new System.Windows.Forms.TextBox();
-      this.label3 = new System.Windows.Forms.Label();
-      this.textBoxBin = new System.Windows.Forms.TextBox();
-      this.label4 = new System.Windows.Forms.Label();
-      this.buttonClear = new System.Windows.Forms.Button();
-      this.buttonAddFlag = new System.Windows.Forms.Button();
-      this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-      this.buttonRemoveFlag = new System.Windows.Forms.Button();
-      this.buttonFill = new System.Windows.Forms.Button();
+      this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+      this.groupBox1 = new System.Windows.Forms.GroupBox();
       this.listBoxHistory = new System.Windows.Forms.ListBox();
-      this.textBoxBinHistory = new System.Windows.Forms.TextBox();
-      this.label5 = new System.Windows.Forms.Label();
-      this.label6 = new System.Windows.Forms.Label();
-      this.textBoxHexHistory = new System.Windows.Forms.TextBox();
-      this.textBoxDecHistory = new System.Windows.Forms.TextBox();
-      this.label7 = new System.Windows.Forms.Label();
-      this.label8 = new System.Windows.Forms.Label();
-      this.button1 = new System.Windows.Forms.Button();
-      this.buttonRevert = new System.Windows.Forms.Button();
-      this.button2 = new System.Windows.Forms.Button();
-      this.label9 = new System.Windows.Forms.Label();
-      this.comboBoxHistory = new System.Windows.Forms.ComboBox();
+      this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+      this.richTextBoxMask = new System.Windows.Forms.RichTextBox();
+      this.label4 = new System.Windows.Forms.Label();
+      this.textBoxBin = new System.Windows.Forms.TextBox();
+      this.textBoxDec = new System.Windows.Forms.TextBox();
+      this.textBoxHex = new System.Windows.Forms.TextBox();
+      this.buttonFill = new System.Windows.Forms.Button();
+      this.buttonRemoveFlag = new System.Windows.Forms.Button();
+      this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+      this.buttonAddFlag = new System.Windows.Forms.Button();
+      this.buttonClear = new System.Windows.Forms.Button();
+      this.label3 = new System.Windows.Forms.Label();
+      this.label2 = new System.Windows.Forms.Label();
+      this.label1 = new System.Windows.Forms.Label();
+      this.richTextBoxHistory = new System.Windows.Forms.RichTextBox();
       this.label10 = new System.Windows.Forms.Label();
-      this.checkBox10 = new System.Windows.Forms.CheckBox();
-      this.checkBox9 = new System.Windows.Forms.CheckBox();
-      this.checkBox8 = new System.Windows.Forms.CheckBox();
-      this.checkBox7 = new System.Windows.Forms.CheckBox();
-      this.checkBox6 = new System.Windows.Forms.CheckBox();
-      this.checkBox5 = new System.Windows.Forms.CheckBox();
-      this.checkBox4 = new System.Windows.Forms.CheckBox();
-      this.checkBox3 = new System.Windows.Forms.CheckBox();
-      this.checkBox2 = new System.Windows.Forms.CheckBox();
-      this.checkBox1 = new System.Windows.Forms.CheckBox();
+      this.buttonRevert = new System.Windows.Forms.Button();
+      this.textBoxDecHistory = new System.Windows.Forms.TextBox();
+      this.textBoxHexHistory = new System.Windows.Forms.TextBox();
+      this.textBoxBinHistory = new System.Windows.Forms.TextBox();
+      this.label7 = new System.Windows.Forms.Label();
+      this.label6 = new System.Windows.Forms.Label();
+      this.label5 = new System.Windows.Forms.Label();
+      this.splitContainer1.Panel2.SuspendLayout();
+      this.splitContainer1.SuspendLayout();
+      this.groupBox1.SuspendLayout();
+      this.splitContainer2.Panel1.SuspendLayout();
+      this.splitContainer2.Panel2.SuspendLayout();
+      this.splitContainer2.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
       this.SuspendLayout();
+      // 
+      // splitContainer1
+      // 
+      this.splitContainer1.BackColor = System.Drawing.Color.LightBlue;
+      this.splitContainer1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+      this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+      this.splitContainer1.Name = "splitContainer1";
+      // 
+      // splitContainer1.Panel1
+      // 
+      this.splitContainer1.Panel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+      this.splitContainer1.Panel1MinSize = 330;
+      // 
+      // splitContainer1.Panel2
+      // 
+      this.splitContainer1.Panel2.Controls.Add(this.groupBox1);
+      this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
+      this.splitContainer1.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+      this.splitContainer1.Panel2MinSize = 125;
+      this.splitContainer1.Size = new System.Drawing.Size(960, 418);
+      this.splitContainer1.SplitterDistance = 330;
+      this.splitContainer1.TabIndex = 92;
+      // 
+      // groupBox1
+      // 
+      this.groupBox1.Controls.Add(this.listBoxHistory);
+      this.groupBox1.Dock = System.Windows.Forms.DockStyle.Left;
+      this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.System;
+      this.groupBox1.Location = new System.Drawing.Point(0, 0);
+      this.groupBox1.Name = "groupBox1";
+      this.groupBox1.Size = new System.Drawing.Size(142, 414);
+      this.groupBox1.TabIndex = 63;
+      this.groupBox1.TabStop = false;
+      this.groupBox1.Text = "History";
+      // 
+      // listBoxHistory
+      // 
+      this.listBoxHistory.BackColor = System.Drawing.SystemColors.Window;
+      this.listBoxHistory.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.listBoxHistory.Location = new System.Drawing.Point(3, 16);
+      this.listBoxHistory.Name = "listBoxHistory";
+      this.listBoxHistory.Size = new System.Drawing.Size(136, 395);
+      this.listBoxHistory.TabIndex = 38;
+      this.listBoxHistory.SelectedIndexChanged += new System.EventHandler(this.History_Click);
+      // 
+      // splitContainer2
+      // 
+      this.splitContainer2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+      this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Right;
+      this.splitContainer2.Location = new System.Drawing.Point(142, 0);
+      this.splitContainer2.Name = "splitContainer2";
+      this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;      
+      this.splitContainer2.Size = new System.Drawing.Size(480, 300);
+      this.splitContainer2.SplitterDistance = 215;
+      this.splitContainer2.TabIndex = 62;
+      // 
+      // splitContainer2.Panel1
+      // 
+      this.splitContainer2.Panel1.Controls.Add(this.richTextBoxMask);
+      this.splitContainer2.Panel1.Controls.Add(this.label4);
+      this.splitContainer2.Panel1.Controls.Add(this.textBoxBin);
+      this.splitContainer2.Panel1.Controls.Add(this.textBoxDec);
+      this.splitContainer2.Panel1.Controls.Add(this.textBoxHex);
+      this.splitContainer2.Panel1.Controls.Add(this.buttonFill);
+      this.splitContainer2.Panel1.Controls.Add(this.buttonRemoveFlag);
+      this.splitContainer2.Panel1.Controls.Add(this.numericUpDown1);
+      this.splitContainer2.Panel1.Controls.Add(this.buttonAddFlag);
+      this.splitContainer2.Panel1.Controls.Add(this.buttonClear);
+      this.splitContainer2.Panel1.Controls.Add(this.label3);
+      this.splitContainer2.Panel1.Controls.Add(this.label2);
+      this.splitContainer2.Panel1.Controls.Add(this.label1);
+      this.splitContainer2.Panel1MinSize = 215;
+      // 
+      // splitContainer2.Panel2
+      // 
+      this.splitContainer2.Panel2.Controls.Add(this.richTextBoxHistory);
+      this.splitContainer2.Panel2.Controls.Add(this.label10);
+      this.splitContainer2.Panel2.Controls.Add(this.buttonRevert);
+      this.splitContainer2.Panel2.Controls.Add(this.textBoxDecHistory);
+      this.splitContainer2.Panel2.Controls.Add(this.textBoxHexHistory);
+      this.splitContainer2.Panel2.Controls.Add(this.textBoxBinHistory);
+      this.splitContainer2.Panel2.Controls.Add(this.label7);
+      this.splitContainer2.Panel2.Controls.Add(this.label6);
+      this.splitContainer2.Panel2.Controls.Add(this.label5);
+      this.splitContainer2.Panel2MinSize = 180;
+      // 
+      // richTextBoxMask
+      // 
+      this.richTextBoxMask.DetectUrls = false;
+      this.richTextBoxMask.Location = new System.Drawing.Point(80, 105);
+      this.richTextBoxMask.Name = "richTextBoxMask";
+      this.richTextBoxMask.ReadOnly = true;
+      this.richTextBoxMask.Size = new System.Drawing.Size(392, 69);
+      this.richTextBoxMask.TabIndex = 76;
+      this.richTextBoxMask.Text = "";
+      // 
+      // label4
+      // 
+      this.label4.Location = new System.Drawing.Point(8, 105);
+      this.label4.Name = "label4";
+      this.label4.Size = new System.Drawing.Size(70, 20);
+      this.label4.TabIndex = 75;
+      this.label4.Text = "Mask";
+      this.label4.TextAlign = System.Drawing.ContentAlignment.TopRight;
+      // 
+      // textBoxBin
+      // 
+      this.textBoxBin.Location = new System.Drawing.Point(80, 75);
+      this.textBoxBin.Name = "textBoxBin";
+      this.textBoxBin.ReadOnly = true;
+      this.textBoxBin.Size = new System.Drawing.Size(392, 20);
+      this.textBoxBin.TabIndex = 68;
+      // 
+      // textBoxDec
+      // 
+      this.textBoxDec.Location = new System.Drawing.Point(80, 15);
+      this.textBoxDec.Name = "textBoxDec";
+      this.textBoxDec.ReadOnly = true;
+      this.textBoxDec.Size = new System.Drawing.Size(128, 20);
+      this.textBoxDec.TabIndex = 66;
       // 
       // textBoxHex
       // 
       this.textBoxHex.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.textBoxHex.Location = new System.Drawing.Point(296, 72);
+      this.textBoxHex.Location = new System.Drawing.Point(80, 45);
       this.textBoxHex.Name = "textBoxHex";
       this.textBoxHex.ReadOnly = true;
       this.textBoxHex.Size = new System.Drawing.Size(128, 20);
-      this.textBoxHex.TabIndex = 1;
+      this.textBoxHex.TabIndex = 62;
       // 
-      // label1
+      // buttonFill
       // 
-      this.label1.Location = new System.Drawing.Point(224, 72);
-      this.label1.Name = "label1";
-      this.label1.Size = new System.Drawing.Size(72, 23);
-      this.label1.TabIndex = 12;
-      this.label1.Text = "Hexidecimal";
+      this.buttonFill.Location = new System.Drawing.Point(365, 184);
+      this.buttonFill.Name = "buttonFill";
+      this.buttonFill.Size = new System.Drawing.Size(88, 23);
+      this.buttonFill.TabIndex = 73;
+      this.buttonFill.Text = "Fill BitField";
+      this.buttonFill.Click += new System.EventHandler(this.Button_Click);
       // 
-      // label2
+      // buttonRemoveFlag
       // 
-      this.label2.Location = new System.Drawing.Point(248, 40);
-      this.label2.Name = "label2";
-      this.label2.Size = new System.Drawing.Size(48, 23);
-      this.label2.TabIndex = 13;
-      this.label2.Text = "Decimal";
-      // 
-      // textBoxDec
-      // 
-      this.textBoxDec.Location = new System.Drawing.Point(296, 40);
-      this.textBoxDec.Name = "textBoxDec";
-      this.textBoxDec.ReadOnly = true;
-      this.textBoxDec.Size = new System.Drawing.Size(128, 20);
-      this.textBoxDec.TabIndex = 14;
-      // 
-      // label3
-      // 
-      this.label3.Location = new System.Drawing.Point(256, 104);
-      this.label3.Name = "label3";
-      this.label3.Size = new System.Drawing.Size(40, 23);
-      this.label3.TabIndex = 15;
-      this.label3.Text = "Binary";
-      // 
-      // textBoxBin
-      // 
-      this.textBoxBin.Location = new System.Drawing.Point(296, 104);
-      this.textBoxBin.Name = "textBoxBin";
-      this.textBoxBin.ReadOnly = true;
-      this.textBoxBin.Size = new System.Drawing.Size(392, 20);
-      this.textBoxBin.TabIndex = 16;
-      // 
-      // label4
-      // 
-      this.label4.AutoSize = true;
-      this.label4.Location = new System.Drawing.Point(320, 16);
-      this.label4.Name = "label4";
-      this.label4.Size = new System.Drawing.Size(41, 13);
-      this.label4.TabIndex = 17;
-      this.label4.Text = "BitField";
-      // 
-      // buttonClear
-      // 
-      this.buttonClear.Location = new System.Drawing.Point(296, 136);
-      this.buttonClear.Name = "buttonClear";
-      this.buttonClear.Size = new System.Drawing.Size(88, 23);
-      this.buttonClear.TabIndex = 18;
-      this.buttonClear.Text = "Clear BitField";
-      this.buttonClear.Click += new System.EventHandler(this.button_Click);
-      // 
-      // buttonAddFlag
-      // 
-      this.buttonAddFlag.Location = new System.Drawing.Point(296, 168);
-      this.buttonAddFlag.Name = "buttonAddFlag";
-      this.buttonAddFlag.Size = new System.Drawing.Size(88, 23);
-      this.buttonAddFlag.TabIndex = 20;
-      this.buttonAddFlag.Text = "Add Flag";
-      this.buttonAddFlag.Click += new System.EventHandler(this.button_Click);
+      this.buttonRemoveFlag.Location = new System.Drawing.Point(175, 184);
+      this.buttonRemoveFlag.Name = "buttonRemoveFlag";
+      this.buttonRemoveFlag.Size = new System.Drawing.Size(88, 23);
+      this.buttonRemoveFlag.TabIndex = 72;
+      this.buttonRemoveFlag.Text = "Remove Flag";
+      this.buttonRemoveFlag.Click += new System.EventHandler(this.Button_Click);
       // 
       // numericUpDown1
       // 
-      this.numericUpDown1.Location = new System.Drawing.Point(248, 168);
+      this.numericUpDown1.Location = new System.Drawing.Point(33, 187);
       this.numericUpDown1.Maximum = new decimal(new int[] {
             64,
             0,
@@ -162,325 +230,188 @@ namespace BitFields {
             0});
       this.numericUpDown1.Name = "numericUpDown1";
       this.numericUpDown1.Size = new System.Drawing.Size(40, 20);
-      this.numericUpDown1.TabIndex = 4;
+      this.numericUpDown1.TabIndex = 63;
       this.numericUpDown1.Value = new decimal(new int[] {
             1,
             0,
             0,
             0});
       // 
-      // buttonRemoveFlag
+      // buttonAddFlag
       // 
-      this.buttonRemoveFlag.Location = new System.Drawing.Point(392, 168);
-      this.buttonRemoveFlag.Name = "buttonRemoveFlag";
-      this.buttonRemoveFlag.Size = new System.Drawing.Size(88, 23);
-      this.buttonRemoveFlag.TabIndex = 21;
-      this.buttonRemoveFlag.Text = "Remove Flag";
-      this.buttonRemoveFlag.Click += new System.EventHandler(this.button_Click);
+      this.buttonAddFlag.Location = new System.Drawing.Point(79, 184);
+      this.buttonAddFlag.Name = "buttonAddFlag";
+      this.buttonAddFlag.Size = new System.Drawing.Size(88, 23);
+      this.buttonAddFlag.TabIndex = 71;
+      this.buttonAddFlag.Text = "Add Flag";
+      this.buttonAddFlag.Click += new System.EventHandler(this.Button_Click);
       // 
-      // buttonFill
+      // buttonClear
       // 
-      this.buttonFill.Location = new System.Drawing.Point(392, 136);
-      this.buttonFill.Name = "buttonFill";
-      this.buttonFill.Size = new System.Drawing.Size(88, 23);
-      this.buttonFill.TabIndex = 22;
-      this.buttonFill.Text = "Fill BitField";
-      this.buttonFill.Click += new System.EventHandler(this.button_Click);
+      this.buttonClear.Location = new System.Drawing.Point(269, 184);
+      this.buttonClear.Name = "buttonClear";
+      this.buttonClear.Size = new System.Drawing.Size(88, 23);
+      this.buttonClear.TabIndex = 70;
+      this.buttonClear.Text = "Clear BitField";
+      this.buttonClear.Click += new System.EventHandler(this.Button_Click);
       // 
-      // listBoxHistory
+      // label3
       // 
-      this.listBoxHistory.BackColor = System.Drawing.SystemColors.Window;
-      this.listBoxHistory.Location = new System.Drawing.Point(16, 280);
-      this.listBoxHistory.Name = "listBoxHistory";
-      this.listBoxHistory.Size = new System.Drawing.Size(192, 147);
-      this.listBoxHistory.TabIndex = 23;
-      this.listBoxHistory.SelectedIndexChanged += new System.EventHandler(this.History_Click);
+      this.label3.Location = new System.Drawing.Point(8, 75);
+      this.label3.Name = "label3";
+      this.label3.Size = new System.Drawing.Size(70, 20);
+      this.label3.TabIndex = 67;
+      this.label3.Text = "Binary";
+      this.label3.TextAlign = System.Drawing.ContentAlignment.TopRight;
       // 
-      // textBoxBinHistory
+      // label2
       // 
-      this.textBoxBinHistory.Location = new System.Drawing.Point(296, 344);
-      this.textBoxBinHistory.Name = "textBoxBinHistory";
-      this.textBoxBinHistory.ReadOnly = true;
-      this.textBoxBinHistory.Size = new System.Drawing.Size(392, 20);
-      this.textBoxBinHistory.TabIndex = 25;
+      this.label2.Location = new System.Drawing.Point(8, 15);
+      this.label2.Name = "label2";
+      this.label2.Size = new System.Drawing.Size(70, 20);
+      this.label2.TabIndex = 65;
+      this.label2.Text = "Decimal";
+      this.label2.TextAlign = System.Drawing.ContentAlignment.TopRight;
       // 
-      // label5
+      // label1
       // 
-      this.label5.Location = new System.Drawing.Point(256, 344);
-      this.label5.Name = "label5";
-      this.label5.Size = new System.Drawing.Size(40, 23);
-      this.label5.TabIndex = 24;
-      this.label5.Text = "Binary";
+      this.label1.Location = new System.Drawing.Point(8, 45);
+      this.label1.Name = "label1";
+      this.label1.Size = new System.Drawing.Size(70, 20);
+      this.label1.TabIndex = 64;
+      this.label1.Text = "Hexidecimal";
+      this.label1.TextAlign = System.Drawing.ContentAlignment.TopRight;
       // 
-      // label6
+      // richTextBoxHistory
       // 
-      this.label6.Location = new System.Drawing.Point(224, 312);
-      this.label6.Name = "label6";
-      this.label6.Size = new System.Drawing.Size(72, 23);
-      this.label6.TabIndex = 27;
-      this.label6.Text = "Hexidecimal";
+      this.richTextBoxHistory.DetectUrls = false;
+      this.richTextBoxHistory.Location = new System.Drawing.Point(80, 105);
+      this.richTextBoxHistory.Name = "richTextBoxHistory";
+      this.richTextBoxHistory.ReadOnly = true;
+      this.richTextBoxHistory.Size = new System.Drawing.Size(392, 69);
+      this.richTextBoxHistory.TabIndex = 77;
+      this.richTextBoxHistory.Text = "";
+      // 
+      // label10
+      // 
+      this.label10.Location = new System.Drawing.Point(8, 105);
+      this.label10.Name = "label10";
+      this.label10.Size = new System.Drawing.Size(70, 20);
+      this.label10.TabIndex = 59;
+      this.label10.Text = "Mask";
+      this.label10.TextAlign = System.Drawing.ContentAlignment.TopRight;
+      // 
+      // buttonRevert
+      // 
+      this.buttonRevert.AutoSize = true;
+      this.buttonRevert.Location = new System.Drawing.Point(280, 15);
+      this.buttonRevert.Name = "buttonRevert";
+      this.buttonRevert.Size = new System.Drawing.Size(101, 23);
+      this.buttonRevert.TabIndex = 56;
+      this.buttonRevert.Text = "▲ Revert Back ▲";
+      this.buttonRevert.Click += new System.EventHandler(this.History_Click);
+      // 
+      // textBoxDecHistory
+      // 
+      this.textBoxDecHistory.Location = new System.Drawing.Point(80, 15);
+      this.textBoxDecHistory.Name = "textBoxDecHistory";
+      this.textBoxDecHistory.ReadOnly = true;
+      this.textBoxDecHistory.Size = new System.Drawing.Size(128, 20);
+      this.textBoxDecHistory.TabIndex = 55;
       // 
       // textBoxHexHistory
       // 
       this.textBoxHexHistory.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.textBoxHexHistory.Location = new System.Drawing.Point(296, 312);
+      this.textBoxHexHistory.Location = new System.Drawing.Point(80, 45);
       this.textBoxHexHistory.Name = "textBoxHexHistory";
       this.textBoxHexHistory.ReadOnly = true;
       this.textBoxHexHistory.Size = new System.Drawing.Size(128, 20);
-      this.textBoxHexHistory.TabIndex = 26;
+      this.textBoxHexHistory.TabIndex = 52;
       // 
-      // textBoxDecHistory
+      // textBoxBinHistory
       // 
-      this.textBoxDecHistory.Location = new System.Drawing.Point(296, 280);
-      this.textBoxDecHistory.Name = "textBoxDecHistory";
-      this.textBoxDecHistory.ReadOnly = true;
-      this.textBoxDecHistory.Size = new System.Drawing.Size(128, 20);
-      this.textBoxDecHistory.TabIndex = 29;
+      this.textBoxBinHistory.Location = new System.Drawing.Point(80, 75);
+      this.textBoxBinHistory.Name = "textBoxBinHistory";
+      this.textBoxBinHistory.ReadOnly = true;
+      this.textBoxBinHistory.Size = new System.Drawing.Size(392, 20);
+      this.textBoxBinHistory.TabIndex = 51;
       // 
       // label7
       // 
-      this.label7.Location = new System.Drawing.Point(248, 280);
+      this.label7.Location = new System.Drawing.Point(8, 15);
       this.label7.Name = "label7";
-      this.label7.Size = new System.Drawing.Size(48, 23);
-      this.label7.TabIndex = 28;
+      this.label7.Size = new System.Drawing.Size(70, 20);
+      this.label7.TabIndex = 54;
       this.label7.Text = "Decimal";
+      this.label7.TextAlign = System.Drawing.ContentAlignment.TopRight;
       // 
-      // label8
+      // label6
       // 
-      this.label8.AutoSize = true;
-      this.label8.Location = new System.Drawing.Point(16, 256);
-      this.label8.Name = "label8";
-      this.label8.Size = new System.Drawing.Size(76, 13);
-      this.label8.TabIndex = 31;
-      this.label8.Text = "BitField History";
+      this.label6.Location = new System.Drawing.Point(8, 45);
+      this.label6.Name = "label6";
+      this.label6.Size = new System.Drawing.Size(70, 20);
+      this.label6.TabIndex = 53;
+      this.label6.Text = "Hexidecimal";
+      this.label6.TextAlign = System.Drawing.ContentAlignment.TopRight;
       // 
-      // button1
+      // label5
       // 
-      this.button1.Location = new System.Drawing.Point(16, 240);
-      this.button1.Name = "button1";
-      this.button1.Size = new System.Drawing.Size(672, 8);
-      this.button1.TabIndex = 32;
-      // 
-      // buttonRevert
-      // 
-      this.buttonRevert.Location = new System.Drawing.Point(500, 280);
-      this.buttonRevert.Name = "buttonRevert";
-      this.buttonRevert.Size = new System.Drawing.Size(96, 23);
-      this.buttonRevert.TabIndex = 33;
-      this.buttonRevert.Text = "^ Revert Back ^";
-      this.buttonRevert.Click += new System.EventHandler(this.History_Click);
-      // 
-      // button2
-      // 
-      this.button2.Location = new System.Drawing.Point(16, 0);
-      this.button2.Name = "button2";
-      this.button2.Size = new System.Drawing.Size(672, 8);
-      this.button2.TabIndex = 34;
-      // 
-      // label9
-      // 
-      this.label9.AutoSize = true;
-      this.label9.Location = new System.Drawing.Point(320, 256);
-      this.label9.Name = "label9";
-      this.label9.Size = new System.Drawing.Size(41, 13);
-      this.label9.TabIndex = 35;
-      this.label9.Text = "BitField";
-      // 
-      // comboBoxHistory
-      // 
-      this.comboBoxHistory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
-      this.comboBoxHistory.Enabled = false;
-      this.comboBoxHistory.FormattingEnabled = true;
-      this.comboBoxHistory.Location = new System.Drawing.Point(296, 376);
-      this.comboBoxHistory.Name = "comboBoxHistory";
-      this.comboBoxHistory.Size = new System.Drawing.Size(392, 21);
-      this.comboBoxHistory.TabIndex = 36;
-      // 
-      // label10
-      // 
-      this.label10.AutoSize = true;
-      this.label10.Location = new System.Drawing.Point(255, 379);
-      this.label10.Name = "label10";
-      this.label10.Size = new System.Drawing.Size(33, 13);
-      this.label10.TabIndex = 37;
-      this.label10.Text = "Mask";
-      // 
-      // checkBox10
-      // 
-      this.checkBox10.Location = new System.Drawing.Point(120, 152);
-      this.checkBox10.Name = "checkBox10";
-      this.checkBox10.Size = new System.Drawing.Size(104, 24);
-      this.checkBox10.TabIndex = 11;
-      this.checkBox10.Text = "Flag 10";
-      this.checkBox10.CheckedChanged += new System.EventHandler(this.CheckedChanged);
-      // 
-      // checkBox9
-      // 
-      this.checkBox9.Location = new System.Drawing.Point(120, 120);
-      this.checkBox9.Name = "checkBox9";
-      this.checkBox9.Size = new System.Drawing.Size(104, 24);
-      this.checkBox9.TabIndex = 10;
-      this.checkBox9.Text = "Flag 9";
-      this.checkBox9.CheckedChanged += new System.EventHandler(this.CheckedChanged);
-      // 
-      // checkBox8
-      // 
-      this.checkBox8.Location = new System.Drawing.Point(120, 88);
-      this.checkBox8.Name = "checkBox8";
-      this.checkBox8.Size = new System.Drawing.Size(104, 24);
-      this.checkBox8.TabIndex = 9;
-      this.checkBox8.Text = "Flag 8";
-      this.checkBox8.CheckedChanged += new System.EventHandler(this.CheckedChanged);
-      // 
-      // checkBox7
-      // 
-      this.checkBox7.Location = new System.Drawing.Point(120, 56);
-      this.checkBox7.Name = "checkBox7";
-      this.checkBox7.Size = new System.Drawing.Size(104, 24);
-      this.checkBox7.TabIndex = 8;
-      this.checkBox7.Text = "Flag 7";
-      this.checkBox7.CheckedChanged += new System.EventHandler(this.CheckedChanged);
-      // 
-      // checkBox6
-      // 
-      this.checkBox6.Location = new System.Drawing.Point(120, 24);
-      this.checkBox6.Name = "checkBox6";
-      this.checkBox6.Size = new System.Drawing.Size(104, 24);
-      this.checkBox6.TabIndex = 7;
-      this.checkBox6.Text = "Flag 6";
-      this.checkBox6.CheckedChanged += new System.EventHandler(this.CheckedChanged);
-      // 
-      // checkBox5
-      // 
-      this.checkBox5.Location = new System.Drawing.Point(16, 152);
-      this.checkBox5.Name = "checkBox5";
-      this.checkBox5.Size = new System.Drawing.Size(104, 24);
-      this.checkBox5.TabIndex = 6;
-      this.checkBox5.Text = "Flag 5";
-      this.checkBox5.CheckedChanged += new System.EventHandler(this.CheckedChanged);
-      // 
-      // checkBox4
-      // 
-      this.checkBox4.Location = new System.Drawing.Point(16, 120);
-      this.checkBox4.Name = "checkBox4";
-      this.checkBox4.Size = new System.Drawing.Size(104, 24);
-      this.checkBox4.TabIndex = 5;
-      this.checkBox4.Text = "Flag 4";
-      this.checkBox4.CheckedChanged += new System.EventHandler(this.CheckedChanged);
-      // 
-      // checkBox3
-      // 
-      this.checkBox3.Location = new System.Drawing.Point(16, 88);
-      this.checkBox3.Name = "checkBox3";
-      this.checkBox3.Size = new System.Drawing.Size(104, 24);
-      this.checkBox3.TabIndex = 4;
-      this.checkBox3.Text = "Flag 3";
-      this.checkBox3.CheckedChanged += new System.EventHandler(this.CheckedChanged);
-      // 
-      // checkBox2
-      // 
-      this.checkBox2.Location = new System.Drawing.Point(16, 56);
-      this.checkBox2.Name = "checkBox2";
-      this.checkBox2.Size = new System.Drawing.Size(104, 24);
-      this.checkBox2.TabIndex = 3;
-      this.checkBox2.Text = "Flag 2";
-      this.checkBox2.CheckedChanged += new System.EventHandler(this.CheckedChanged);
-      // 
-      // checkBox1
-      // 
-      this.checkBox1.Location = new System.Drawing.Point(16, 24);
-      this.checkBox1.Name = "checkBox1";
-      this.checkBox1.Size = new System.Drawing.Size(104, 24);
-      this.checkBox1.TabIndex = 2;
-      this.checkBox1.Text = "Flag 1";
-      this.checkBox1.CheckedChanged += new System.EventHandler(this.CheckedChanged);
+      this.label5.Location = new System.Drawing.Point(8, 75);
+      this.label5.Name = "label5";
+      this.label5.Size = new System.Drawing.Size(70, 20);
+      this.label5.TabIndex = 50;
+      this.label5.Text = "Binary";
+      this.label5.TextAlign = System.Drawing.ContentAlignment.TopRight;
       // 
       // FormClass
       // 
       this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
-      this.ClientSize = new System.Drawing.Size(712, 439);
-      this.Controls.Add(this.label10);
-      this.Controls.Add(this.comboBoxHistory);
-      this.Controls.Add(this.label9);
-      this.Controls.Add(this.button2);
-      this.Controls.Add(this.buttonRevert);
-      this.Controls.Add(this.button1);
-      this.Controls.Add(this.label8);
-      this.Controls.Add(this.textBoxDecHistory);
-      this.Controls.Add(this.textBoxHexHistory);
-      this.Controls.Add(this.textBoxBinHistory);
-      this.Controls.Add(this.textBoxBin);
-      this.Controls.Add(this.textBoxDec);
-      this.Controls.Add(this.textBoxHex);
-      this.Controls.Add(this.label7);
-      this.Controls.Add(this.label6);
-      this.Controls.Add(this.label5);
-      this.Controls.Add(this.listBoxHistory);
-      this.Controls.Add(this.buttonFill);
-      this.Controls.Add(this.buttonRemoveFlag);
-      this.Controls.Add(this.numericUpDown1);
-      this.Controls.Add(this.buttonAddFlag);
-      this.Controls.Add(this.buttonClear);
-      this.Controls.Add(this.label4);
-      this.Controls.Add(this.label3);
-      this.Controls.Add(this.label2);
-      this.Controls.Add(this.label1);
-      this.Controls.Add(this.checkBox10);
-      this.Controls.Add(this.checkBox9);
-      this.Controls.Add(this.checkBox8);
-      this.Controls.Add(this.checkBox7);
-      this.Controls.Add(this.checkBox6);
-      this.Controls.Add(this.checkBox5);
-      this.Controls.Add(this.checkBox4);
-      this.Controls.Add(this.checkBox3);
-      this.Controls.Add(this.checkBox2);
-      this.Controls.Add(this.checkBox1);
+      this.ClientSize = new System.Drawing.Size(960, 418);
+      this.Controls.Add(this.splitContainer1);
+      this.MinimumSize = new System.Drawing.Size(976, 457);
       this.Name = "FormClass";
+      this.splitContainer1.Panel2.ResumeLayout(false);
+      this.splitContainer1.ResumeLayout(false);
+      this.groupBox1.ResumeLayout(false);
+      this.splitContainer2.Panel1.ResumeLayout(false);
+      this.splitContainer2.Panel1.PerformLayout();
+      this.splitContainer2.Panel2.ResumeLayout(false);
+      this.splitContainer2.Panel2.PerformLayout();
+      this.splitContainer2.ResumeLayout(false);
       ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
       this.ResumeLayout(false);
-      this.PerformLayout();
 
     }
 
     #endregion
 
-    private Button button1;
-    private Button button2;
-    private Button buttonAddFlag;
-    private Button buttonClear;
+    private SplitContainer splitContainer1;
+    private GroupBox groupBox1;
+    private ListBox listBoxHistory;
+    private SplitContainer splitContainer2;
+    private TextBox textBoxBin;
+    private TextBox textBoxDec;
+    private TextBox textBoxHex;
     private Button buttonFill;
     private Button buttonRemoveFlag;
-    private Button buttonRevert;
-
-    private CheckBox checkBox1;
-    private CheckBox checkBox2;
-    private CheckBox checkBox3;
-    private CheckBox checkBox4;
-    private CheckBox checkBox5;
-    private CheckBox checkBox6;
-    private CheckBox checkBox7;
-    private CheckBox checkBox8;
-    private CheckBox checkBox9;
-    private CheckBox checkBox10;
-    private Label label1;
-    private Label label2;
-    private Label label3;
-    private Label label4;
-    private Label label5;
-    private Label label6;
-    private Label label7;
-    private Label label8;
-    private Label label9;
-    private Label label10;
-    private ListBox listBoxHistory;
     private NumericUpDown numericUpDown1;
-    private TextBox textBoxBin;
-    private TextBox textBoxBinHistory;
-    private TextBox textBoxDec;
+    private Button buttonAddFlag;
+    private Button buttonClear;
+    private Label label3;
+    private Label label2;
+    private Label label1;
+    private Label label10;
+    private Button buttonRevert;
     private TextBox textBoxDecHistory;
-    private TextBox textBoxHex;
     private TextBox textBoxHexHistory;
-    private ComboBox comboBoxHistory;
+    private TextBox textBoxBinHistory;
+    private Label label7;
+    private Label label6;
+    private Label label5;
+    private Label label4;
+    private RichTextBox richTextBoxMask;
+    private RichTextBox richTextBoxHistory;
+
   }
 }
 #endif

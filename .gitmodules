@@ -1,0 +1,4 @@
+[submodule "Tests"]
+	path = Tests
+	url = C:/Users/Latency/Documents/Visual Studio 2013/Projects/Bitfields
+	branch = master
