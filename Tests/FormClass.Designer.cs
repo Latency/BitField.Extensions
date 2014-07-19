@@ -3,10 +3,6 @@ using System.Windows.Forms;
 
 namespace Tests {
   public sealed partial class FormClass {
-    /// <summary>
-    ///   Required designer variable.
-    /// </summary>
-    private readonly Container components = null;
 
     /// <summary>
     ///   Clean up any resources being used.
@@ -27,6 +23,7 @@ namespace Tests {
     ///   the contents of this method with the code editor.
     /// </summary>
     private void InitializeComponent() {
+      this.components = new System.ComponentModel.Container();
       this.splitContainer1 = new System.Windows.Forms.SplitContainer();
       this.groupBox1 = new System.Windows.Forms.GroupBox();
       this.listBoxHistory = new System.Windows.Forms.ListBox();
@@ -37,9 +34,9 @@ namespace Tests {
       this.textBoxDec = new System.Windows.Forms.TextBox();
       this.textBoxHex = new System.Windows.Forms.TextBox();
       this.buttonFill = new System.Windows.Forms.Button();
-      this.buttonRemoveFlag = new System.Windows.Forms.Button();
+      this.buttonResetBit = new System.Windows.Forms.Button();
       this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-      this.buttonAddFlag = new System.Windows.Forms.Button();
+      this.buttonSetBit = new System.Windows.Forms.Button();
       this.buttonClear = new System.Windows.Forms.Button();
       this.label3 = new System.Windows.Forms.Label();
       this.label2 = new System.Windows.Forms.Label();
@@ -53,6 +50,7 @@ namespace Tests {
       this.label7 = new System.Windows.Forms.Label();
       this.label6 = new System.Windows.Forms.Label();
       this.label5 = new System.Windows.Forms.Label();
+      this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
       this.splitContainer1.Panel2.SuspendLayout();
       this.splitContainer1.SuspendLayout();
       this.groupBox1.SuspendLayout();
@@ -69,6 +67,9 @@ namespace Tests {
       this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
       this.splitContainer1.Location = new System.Drawing.Point(0, 0);
       this.splitContainer1.Name = "splitContainer1";
+      this.splitContainer1.Size = new System.Drawing.Size(968, 420);
+      this.splitContainer1.SplitterDistance = 332;
+      this.splitContainer1.TabIndex = 92;
       // 
       // splitContainer1.Panel1
       // 
@@ -81,9 +82,6 @@ namespace Tests {
       this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
       this.splitContainer1.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
       this.splitContainer1.Panel2MinSize = 125;
-      this.splitContainer1.Size = new System.Drawing.Size(968, 420);
-      this.splitContainer1.SplitterDistance = 332;
-      this.splitContainer1.TabIndex = 92;
       // 
       // groupBox1
       // 
@@ -126,9 +124,9 @@ namespace Tests {
       this.splitContainer2.Panel1.Controls.Add(this.textBoxDec);
       this.splitContainer2.Panel1.Controls.Add(this.textBoxHex);
       this.splitContainer2.Panel1.Controls.Add(this.buttonFill);
-      this.splitContainer2.Panel1.Controls.Add(this.buttonRemoveFlag);
+      this.splitContainer2.Panel1.Controls.Add(this.buttonResetBit);
       this.splitContainer2.Panel1.Controls.Add(this.numericUpDown1);
-      this.splitContainer2.Panel1.Controls.Add(this.buttonAddFlag);
+      this.splitContainer2.Panel1.Controls.Add(this.buttonSetBit);
       this.splitContainer2.Panel1.Controls.Add(this.buttonClear);
       this.splitContainer2.Panel1.Controls.Add(this.label3);
       this.splitContainer2.Panel1.Controls.Add(this.label2);
@@ -202,14 +200,14 @@ namespace Tests {
       this.buttonFill.Text = "Fill BitField";
       this.buttonFill.Click += new System.EventHandler(this.Button_Click);
       // 
-      // buttonRemoveFlag
+      // buttonResetBit
       // 
-      this.buttonRemoveFlag.Location = new System.Drawing.Point(175, 184);
-      this.buttonRemoveFlag.Name = "buttonRemoveFlag";
-      this.buttonRemoveFlag.Size = new System.Drawing.Size(88, 23);
-      this.buttonRemoveFlag.TabIndex = 72;
-      this.buttonRemoveFlag.Text = "Remove Flag";
-      this.buttonRemoveFlag.Click += new System.EventHandler(this.Button_Click);
+      this.buttonResetBit.Location = new System.Drawing.Point(175, 184);
+      this.buttonResetBit.Name = "buttonResetBit";
+      this.buttonResetBit.Size = new System.Drawing.Size(88, 23);
+      this.buttonResetBit.TabIndex = 72;
+      this.buttonResetBit.Text = "Reset Bit";
+      this.buttonResetBit.Click += new System.EventHandler(this.Button_Click);
       // 
       // numericUpDown1
       // 
@@ -233,14 +231,14 @@ namespace Tests {
             0,
             0});
       // 
-      // buttonAddFlag
+      // buttonSetBit
       // 
-      this.buttonAddFlag.Location = new System.Drawing.Point(79, 184);
-      this.buttonAddFlag.Name = "buttonAddFlag";
-      this.buttonAddFlag.Size = new System.Drawing.Size(88, 23);
-      this.buttonAddFlag.TabIndex = 71;
-      this.buttonAddFlag.Text = "Add Flag";
-      this.buttonAddFlag.Click += new System.EventHandler(this.Button_Click);
+      this.buttonSetBit.Location = new System.Drawing.Point(79, 184);
+      this.buttonSetBit.Name = "buttonSetBit";
+      this.buttonSetBit.Size = new System.Drawing.Size(88, 23);
+      this.buttonSetBit.TabIndex = 71;
+      this.buttonSetBit.Text = "Set Bit";
+      this.buttonSetBit.Click += new System.EventHandler(this.Button_Click);
       // 
       // buttonClear
       // 
@@ -391,9 +389,9 @@ namespace Tests {
     private TextBox textBoxDec;
     private TextBox textBoxHex;
     private Button buttonFill;
-    private Button buttonRemoveFlag;
+    private Button buttonResetBit;
     private NumericUpDown numericUpDown1;
-    private Button buttonAddFlag;
+    private Button buttonSetBit;
     private Button buttonClear;
     private Label label3;
     private Label label2;
@@ -409,6 +407,8 @@ namespace Tests {
     private Label label4;
     private RichTextBox richTextBoxMask;
     private RichTextBox richTextBoxHistory;
+    private ToolTip toolTip1;
+    private IContainer components;
 
   }
 }

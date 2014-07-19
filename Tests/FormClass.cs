@@ -44,13 +44,20 @@ namespace Tests {
         cb.AutoSize = true;
         cb.Location = (idx % 5) == 0 ? new Point(5, last.Location.Y + offset.Y) : new Point(last.Location.X + offset.X, last.Location.Y);
         cb.Name = "checkBox" + (idx + 1);
-        cb.Text = String.Format("Flag {0:D2}", (idx + 1));
+        cb.Text = String.Format("Bit {0:D2}", (idx + 1));
         cb.Tag = (Flag) Enum.Parse(typeof(Flag), "F" + (idx + 1));
         cb.Click += Check_Changed;
+        toolTip1.SetToolTip(cb, String.Format("Check here to toggle '{0}'!", cb.Text));
         last = cb;
         // Add control to form
         splitContainer1.Panel1.Controls.Add(last);
       }
+
+      toolTip1.SetToolTip(numericUpDown1, "Used in conjunction with the (re)set button!");
+      toolTip1.SetToolTip(buttonSetBit, "Click here to set a bit denoted by the spinbox!");
+      toolTip1.SetToolTip(buttonResetBit, "Click here to reset the bit denoted by the spinbox!");
+      toolTip1.SetToolTip(buttonClear, "Click here to reset all bits!");
+      toolTip1.SetToolTip(buttonFill, "Click here to set all bits!");
 
       #endregion Form Designer
 
@@ -89,8 +96,7 @@ namespace Tests {
     /// <param name="bm"></param>
     private void AddToHistory(BitField bm) {
       listBoxHistory.Items.Insert(0, bm.ToString.Decimal());
-      // TODO:  Fix event triggering duplicate invocation
-      //listBoxHistory.SelectedIndex = 0;
+      listBoxHistory.SelectedIndex = 0;
     }
 
     #region Events
@@ -109,10 +115,10 @@ namespace Tests {
         case "Fill": // Fill the bit Field by turning all flags on.
           _bitField.FillField();
           break;
-        case "AddFlag": // Add the specified flag to the bitField.
+        case "SetBit": // Add the specified flag to the bitField.
           _bitField.SetOn(BitField.DecimalToFlag(numericUpDown1.Value));
           break;
-        case "RemoveFlag": // Remove the specified flag to the bitField.
+        case "ResetBit": // Remove the specified flag to the bitField.
           _bitField.SetOff(BitField.DecimalToFlag(numericUpDown1.Value));
           break;
         default:
