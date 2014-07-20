@@ -94,5 +94,5 @@ namespace BitFields {
     F62 = F61 << 1,
     F63 = F62 << 1,
     F64 = F63 << 1
-  };
+  }
 }
