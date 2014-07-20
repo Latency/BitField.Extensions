@@ -7,13 +7,13 @@
 *.sln.docstates
 
 # Build results
-[Dd]ebug/
+#[Dd]ebug/
 [Dd]ebugPublic/
-[Rr]elease/
+#[Rr]elease/
 x64/
 build/
 bld/
-[Bb]in/
+#[Bb]in/
 [Oo]bj/
 
 # MSTest test Results
@@ -33,10 +33,11 @@ dlldata.c
 *_p.c
 *_i.h
 *.ilk
+*.manifest
 *.meta
 *.obj
 *.pch
-*.pdb
+#*.pdb
 *.pgc
 *.pgd
 *.rsp
@@ -47,6 +48,7 @@ dlldata.c
 *.tmp
 *.tmp_proj
 *.log
+*.vshost.exe
 *.vspscc
 *.vssscc
 .builds
