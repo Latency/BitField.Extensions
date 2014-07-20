@@ -13,19 +13,26 @@ namespace BitFields {
   ///   Initialization:
   ///   ------------------
   ///   BitField()      // Constructor
-  ///   ClearField()    // ClearField clears all contents of the Field
-  ///   FillField()     // FillField fills all contents of the Field
+  ///   BitField(ulong) // Copy Constructor
+  /// 
+  ///   Mask            // Property used to hold the bitmask value.
+  /// 
+  ///   ClearField()    // ClearField clears all contents of the Field.
+  ///   FillField()     // FillField fills all contents of the Field.
   ///   SetField()      // Setting the specified flag and turning all other flags off.
+  /// 
   ///   Operations:
-  ///   SetOn()         // Setting the specified flag and leaving all other flags unchanged
+  ///   -----------------------
+  ///   SetOn()         // Setting the specified flag and leaving all other flags unchanged.
   ///   SetOff()        // Unsetting the specified flag and leaving all other flags unchanged.
   ///   Toggle()        // Toggling the specified flag and leaving all other bits unchanged.
-  ///   IsSet            // IsSet checks if the specified flag is set/on in the Field.
+  ///   IsSet()         // IsSet checks if the specified flag is set/on in the Field.
+  ///   IsEqual()       // Compares the bitmask with another and tests if equal.
   ///
   ///   Conversion:
   ///   -----------------------
-  ///   DecimalToFlag        // Convert a decimal value to a Flag FlagsAttribute value.
-  ///   ToString.Decimal()   // Return a string representation of the Field in decimal (base 10) notation
+  ///   DecimalToFlag()      // Convert a decimal value to a Flag FlagsAttribute value.
+  ///   ToString.Decimal()   // Return a string representation of the Field in decimal (base 10) notation.
   ///   ToString.Hex()       // Return a string representation of the Field in hexidecimal (base 16) notation.
   ///   ToString.Binary()    // Return a string representation of the Field in binary (base 2) notation.
   /// </summary>
@@ -53,7 +60,7 @@ namespace BitFields {
     ///   Set all bits to zero using the clear flag
     /// </summary>
     public void ClearField() {
-      SetField(Flag.Clear);
+      SetField(0UL);
     }
 
     /// <summary>
@@ -61,7 +68,7 @@ namespace BitFields {
     ///   Set all bits to zero using the negation of clear
     /// </summary>
     public void FillField() {
-      SetField(~Flag.Clear);
+      SetField(~0UL);
     }
 
     /// <summary>
@@ -69,9 +76,9 @@ namespace BitFields {
     ///   - Bits that are set to 1 in the flag will be set to one in the Field.
     ///   - Bits that are set to 0 in the flag will be set to zero in the Field.
     /// </summary>
-    /// <param name="flg">The flag to set in Field</param>
-    private void SetField(Flag flg) {
-      Mask = (ulong) flg;
+    /// <param name="mask">The mask to set in Field</param>
+    private void SetField(ulong mask) {
+      Mask = mask;
     }
 
     /// <summary>
@@ -86,9 +93,9 @@ namespace BitFields {
     ///   0 | 1 = 1
     ///   1 | 1 = 1
     /// </example>
-    /// <param name="flg">The flag to set in Field</param>
-    public void SetOn(Flag flg) {
-      Mask |= (ulong) flg;
+    /// <param name="mask">The mask to set in Field</param>
+    public void SetOn(ulong mask) {
+      Mask |= mask;
     }
 
     /// <summary>
@@ -103,9 +110,9 @@ namespace BitFields {
     ///   0 & 1 = 0
     ///   1 & 1 = 1
     /// </example>
-    /// <param name="flg">The flag(s) to unset in Field</param>
-    public void SetOff(Flag flg) {
-      Mask &= ~(ulong) flg;
+    /// <param name="mask">The mask to unset in Field</param>
+    public void SetOff(ulong mask) {
+      Mask &= ~mask;
     }
 
     /// <summary>
@@ -120,34 +127,34 @@ namespace BitFields {
     ///   0 ^ 1 = 1
     ///   1 ^ 1 = 0
     /// </example>
-    /// <param name="flg">The flag to toggle in Field</param>
-    public void Toggle(Flag flg) {
-      Mask ^= (ulong) flg;
+    /// <param name="mask">The mask to toggle in Field</param>
+    public void Toggle(ulong mask) {
+      Mask ^= mask;
     }
 
     /// <summary>
     ///   Checks if any/all of the specified flags are set/on in the Field.
     /// </summary>
-    /// <param name="flg"></param>
+    /// <param name="mask"></param>
     /// <param name="compareAll"></param>
     /// <returns>
     ///   true if flag(s) is set in Field
     ///   false otherwise
     /// </returns>
-    public bool IsSet(Flag flg, bool compareAll = false) {
-      return (!compareAll ? (Mask & (ulong) flg) != 0 : (Mask & (ulong) flg) == (ulong) flg);
+    public bool IsSet(ulong mask, bool compareAll = false) {
+      return (!compareAll ? (Mask & mask) != 0 : (Mask & mask) == mask);
     }
 
     /// <summary>
     ///   IsEqual checks if all the specified flags are the same as in the Field.
     /// </summary>
-    /// <param name="flg">flag(s) to check</param>
+    /// <param name="mask">The mask to check</param>
     /// <returns>
     ///   true if all flags identical in the Field
     ///   false otherwise
     /// </returns>
-    public bool IsEqual(Flag flg) {
-      return Mask == (ulong) flg;
+    public bool IsEqual(ulong mask) {
+      return Mask == mask;
     }
 
 
@@ -156,19 +163,17 @@ namespace BitFields {
     ///   Method is thread safe
     /// </summary>
     /// <param name="dec">Valid input: dec between 0,64 </param>
-    /// <returns></returns>
-    public static Flag DecimalToFlag(decimal dec) {
-      var flg = Flag.Clear;
+    /// <returns>The bitmask of the decimal value</returns>
+    public static ulong DecimalToFlag(decimal dec) {
       ulong tMsk = 0;
       try {
         var shift = (byte) dec;
         if (shift > 0 && shift <= 64)
           tMsk = (ulong) 0x01 << (shift - 1);
-        flg = (Flag) tMsk;
       } catch (OverflowException e) { //Byte cast operation
         Console.WriteLine("Exception caught in ToStringBin: {0}", e);
       }
-      return flg;
+      return tMsk;
     }
 
     // ///////////////////////////////////////////////////////////////////////////////

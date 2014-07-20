@@ -7,8 +7,10 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Globalization;
+using System.Diagnostics;
 using System.Linq;
+using System.Reflection;
+using System.Text;
 
 
 namespace BitFields {
@@ -37,17 +39,17 @@ namespace BitFields {
     /// <param name="value">The value.</param>
     /// <returns>A collection of enums</returns>
     public static IEnumerable<T> GetAllSelectedItems<T>(this Enum value) where T : struct, IComparable, IFormattable, IConvertible {
-      var valueAsInt = Convert.ToUInt64(value, CultureInfo.InvariantCulture);
-      return GetAllSelectedItems<T>(valueAsInt);
+      return GetAllSelectedItems<T>(Convert.ToUInt64(value));
     }
 
     // Compare All
-    public static IEnumerable<T> GetAllSelectedItems<T>(ulong value) where T : struct, IComparable, IFormattable, IConvertible {
-      for (var idx = 0; idx < 64; idx++) {
-        var flag = (Flag) Enum.Parse(typeof (Flag), "F" + (idx + 1));
-        if (Contains(value, flag))
-          yield return (T) Enum.Parse(typeof(T), flag.ToString());
-      }
+    public static IEnumerable<T> GetAllSelectedItems<T>(ulong mask) where T : struct, IComparable, IFormattable, IConvertible {
+      var type = typeof (T);
+      return from field in type.GetFields()
+             where !field.Name.Equals("value__")
+             select Convert.ToUInt64(field.GetRawConstantValue()) into value
+               where value != 0 && Contains(mask, value)
+               select (T) Enum.ToObject(type, value);
     }
 
     /// <summary>
@@ -71,7 +73,7 @@ namespace BitFields {
 
     // Contains Any
     public static bool Contains<T>(ulong mask, T value) where T : struct, IComparable, IFormattable, IConvertible {
-      return new BitField(mask).IsSet((Flag)Enum.ToObject(typeof(T), value), true);
+      return new BitField(mask).IsSet(Convert.ToUInt64(value), true);
     }
 
     /// <summary>

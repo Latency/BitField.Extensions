@@ -24,10 +24,12 @@ namespace Tests {
     /// </summary>
     private void InitializeComponent() {
       this.components = new System.ComponentModel.Container();
+      System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormClass));
       this.splitContainer1 = new System.Windows.Forms.SplitContainer();
       this.groupBox1 = new System.Windows.Forms.GroupBox();
       this.listBoxHistory = new System.Windows.Forms.ListBox();
       this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+      this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
       this.richTextBoxMask = new System.Windows.Forms.RichTextBox();
       this.label4 = new System.Windows.Forms.Label();
       this.textBoxBin = new System.Windows.Forms.TextBox();
@@ -35,7 +37,7 @@ namespace Tests {
       this.textBoxHex = new System.Windows.Forms.TextBox();
       this.buttonFill = new System.Windows.Forms.Button();
       this.buttonResetBit = new System.Windows.Forms.Button();
-      this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+      this.SpinBox = new System.Windows.Forms.NumericUpDown();
       this.buttonSetBit = new System.Windows.Forms.Button();
       this.buttonClear = new System.Windows.Forms.Button();
       this.label3 = new System.Windows.Forms.Label();
@@ -57,7 +59,8 @@ namespace Tests {
       this.splitContainer2.Panel1.SuspendLayout();
       this.splitContainer2.Panel2.SuspendLayout();
       this.splitContainer2.SuspendLayout();
-      ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.SpinBox)).BeginInit();
       this.SuspendLayout();
       // 
       // splitContainer1
@@ -118,6 +121,7 @@ namespace Tests {
       // 
       // splitContainer2.Panel1
       // 
+      this.splitContainer2.Panel1.Controls.Add(this.pictureBoxLogo);
       this.splitContainer2.Panel1.Controls.Add(this.richTextBoxMask);
       this.splitContainer2.Panel1.Controls.Add(this.label4);
       this.splitContainer2.Panel1.Controls.Add(this.textBoxBin);
@@ -125,7 +129,7 @@ namespace Tests {
       this.splitContainer2.Panel1.Controls.Add(this.textBoxHex);
       this.splitContainer2.Panel1.Controls.Add(this.buttonFill);
       this.splitContainer2.Panel1.Controls.Add(this.buttonResetBit);
-      this.splitContainer2.Panel1.Controls.Add(this.numericUpDown1);
+      this.splitContainer2.Panel1.Controls.Add(this.SpinBox);
       this.splitContainer2.Panel1.Controls.Add(this.buttonSetBit);
       this.splitContainer2.Panel1.Controls.Add(this.buttonClear);
       this.splitContainer2.Panel1.Controls.Add(this.label3);
@@ -145,6 +149,18 @@ namespace Tests {
       this.splitContainer2.Panel2.Controls.Add(this.label6);
       this.splitContainer2.Panel2.Controls.Add(this.label5);
       this.splitContainer2.Panel2MinSize = 180;
+      // 
+      // pictureBoxLogo
+      // 
+      this.pictureBoxLogo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBoxLogo.BackgroundImage")));
+      this.pictureBoxLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+      this.pictureBoxLogo.InitialImage = null;
+      this.pictureBoxLogo.Location = new System.Drawing.Point(255, 3);
+      this.pictureBoxLogo.Name = "pictureBoxLogo";
+      this.pictureBoxLogo.Size = new System.Drawing.Size(217, 71);
+      this.pictureBoxLogo.TabIndex = 77;
+      this.pictureBoxLogo.TabStop = false;
+      this.pictureBoxLogo.Click += new System.EventHandler(this.pictureBoxLogo_Click);
       // 
       // richTextBoxMask
       // 
@@ -209,27 +225,28 @@ namespace Tests {
       this.buttonResetBit.Text = "Reset Bit";
       this.buttonResetBit.Click += new System.EventHandler(this.Button_Click);
       // 
-      // numericUpDown1
+      // SpinBox
       // 
-      this.numericUpDown1.Location = new System.Drawing.Point(33, 187);
-      this.numericUpDown1.Maximum = new decimal(new int[] {
+      this.SpinBox.Location = new System.Drawing.Point(33, 187);
+      this.SpinBox.Maximum = new decimal(new int[] {
             64,
             0,
             0,
             0});
-      this.numericUpDown1.Minimum = new decimal(new int[] {
+      this.SpinBox.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-      this.numericUpDown1.Name = "numericUpDown1";
-      this.numericUpDown1.Size = new System.Drawing.Size(40, 20);
-      this.numericUpDown1.TabIndex = 63;
-      this.numericUpDown1.Value = new decimal(new int[] {
+      this.SpinBox.Name = "SpinBox";
+      this.SpinBox.Size = new System.Drawing.Size(40, 20);
+      this.SpinBox.TabIndex = 63;
+      this.SpinBox.Value = new decimal(new int[] {
             1,
             0,
             0,
             0});
+      this.SpinBox.ValueChanged += new System.EventHandler(this.SpinBox_ValueChanged);
       // 
       // buttonSetBit
       // 
@@ -374,7 +391,8 @@ namespace Tests {
       this.splitContainer2.Panel2.ResumeLayout(false);
       this.splitContainer2.Panel2.PerformLayout();
       this.splitContainer2.ResumeLayout(false);
-      ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.SpinBox)).EndInit();
       this.ResumeLayout(false);
 
     }
@@ -390,7 +408,7 @@ namespace Tests {
     private TextBox textBoxHex;
     private Button buttonFill;
     private Button buttonResetBit;
-    private NumericUpDown numericUpDown1;
+    private NumericUpDown SpinBox;
     private Button buttonSetBit;
     private Button buttonClear;
     private Label label3;
@@ -409,6 +427,7 @@ namespace Tests {
     private RichTextBox richTextBoxHistory;
     private ToolTip toolTip1;
     private IContainer components;
+    private PictureBox pictureBoxLogo;
 
   }
 }

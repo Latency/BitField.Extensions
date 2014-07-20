@@ -53,7 +53,7 @@ namespace Tests {
         splitContainer1.Panel1.Controls.Add(last);
       }
 
-      toolTip1.SetToolTip(numericUpDown1, "Used in conjunction with the (re)set button!");
+      toolTip1.SetToolTip(SpinBox, "Used in conjunction with the (re)set button!");
       toolTip1.SetToolTip(buttonSetBit, "Click here to set a bit denoted by the spinbox!");
       toolTip1.SetToolTip(buttonResetBit, "Click here to reset the bit denoted by the spinbox!");
       toolTip1.SetToolTip(buttonClear, "Click here to reset all bits!");
@@ -80,6 +80,7 @@ namespace Tests {
       ctx[3].Text = EnumExtensions.GetAllSelectedItems<Flag>(bitfield.Mask).ToList().Aggregate(
         String.Empty, (current, enm) => current + ((current.Length > 0 ? " | " : String.Empty) + enm.GetEnumDescription())
       );
+      SpinBox_ValueChanged(null, null);
     }
 
     /// <summary>
@@ -87,7 +88,7 @@ namespace Tests {
     /// </summary>
     private void RedrawCheckBoxes() {
       foreach (var c in splitContainer1.Panel1.Controls.OfType<CheckBox>())
-        c.Checked = _bitField.IsSet((Flag) c.Tag);
+        c.Checked = _bitField.IsSet(Convert.ToUInt64((Flag) c.Tag));
     }
 
     /// <summary>
@@ -116,10 +117,10 @@ namespace Tests {
           _bitField.FillField();
           break;
         case "SetBit": // Add the specified flag to the bitField.
-          _bitField.SetOn(BitField.DecimalToFlag(numericUpDown1.Value));
+          _bitField.SetOn(BitField.DecimalToFlag(SpinBox.Value));
           break;
         case "ResetBit": // Remove the specified flag to the bitField.
-          _bitField.SetOff(BitField.DecimalToFlag(numericUpDown1.Value));
+          _bitField.SetOff(BitField.DecimalToFlag(SpinBox.Value));
           break;
         default:
           throw new ArgumentException("Button must be named 'button[Clear|Fill|AddFlag|RemoveFlag]'");
@@ -136,8 +137,7 @@ namespace Tests {
     /// <param name="e"></param>
     private void Check_Changed(object sender, EventArgs e) {
       var cb = (CheckBox) sender;
-      var enm = (Flag) cb.Tag;
-      _bitField.Toggle(enm);
+      _bitField.Toggle(Convert.ToUInt64((Flag) cb.Tag));
       AddToHistory(_bitField);
       Redraw(_bitField, true);
     }
@@ -173,5 +173,15 @@ namespace Tests {
     }
 
     #endregion Events
+
+    private void SpinBox_ValueChanged(object sender, EventArgs e) {
+      var test = _bitField.IsSet(BitField.DecimalToFlag(SpinBox.Value));
+      buttonSetBit.Enabled = !test;
+      buttonResetBit.Enabled = test;
+    }
+
+    private void pictureBoxLogo_Click(object sender, EventArgs e) {
+      System.Diagnostics.Process.Start("https://github.com/Latency/Bitfields");
+    }
   }
 }
