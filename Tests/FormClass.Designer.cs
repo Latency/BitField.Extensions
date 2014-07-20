@@ -381,6 +381,7 @@ namespace Tests {
       this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
       this.ClientSize = new System.Drawing.Size(968, 420);
       this.Controls.Add(this.splitContainer1);
+      this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
       this.MinimumSize = new System.Drawing.Size(976, 457);
       this.Name = "FormClass";
       this.splitContainer1.Panel2.ResumeLayout(false);
