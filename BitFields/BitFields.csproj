@@ -115,7 +115,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Ilmerge.CSharp.targets" /> 
   <PropertyGroup>
     <PreBuildEvent />
     <PostBuildEvent />
