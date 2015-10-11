@@ -1,4 +1,5 @@
 #region Apache Licensed
+
 /*
  Copyright 2011 Clarius Consulting, Daniel Cazzulino
 
@@ -14,50 +15,56 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 */
+
 #endregion
 
-namespace BitFields
-{
-    using System;
-    using System.ComponentModel;
+using System;
+using System.ComponentModel;
+
+namespace BitFields {
+  /// <summary>
+  ///   Interface that is used to build fluent interfaces and hides methods declared by <see cref="object" /> from
+  ///   IntelliSense.
+  /// </summary>
+  /// <remarks>
+  ///   Code that consumes implementations of this interface should expect one of two things:
+  ///   <list type="number">
+  ///     <item>
+  ///       When referencing the interface from within the same solution (project reference), you will still see the
+  ///       methods this interface is meant to hide.
+  ///     </item>
+  ///     <item>
+  ///       When referencing the interface through the compiled output assembly (external reference), the standard Object
+  ///       methods will be hidden as intended.
+  ///     </item>
+  ///   </list>
+  ///   See http://clarius.to/IFluentInterface for more information.
+  /// </remarks>
+  /// <nuget id="IFluentInterface" />
+  [EditorBrowsable(EditorBrowsableState.Never)]
+  public interface IFluentInterface {
+    /// <summary>
+    ///   Redeclaration that hides the <see cref="object.GetType()" /> method from IntelliSense.
+    /// </summary>
+    [EditorBrowsable(EditorBrowsableState.Never)]
+    Type GetType();
 
     /// <summary>
-    /// Interface that is used to build fluent interfaces and hides methods declared by <see cref="object"/> from IntelliSense.
+    ///   Redeclaration that hides the <see cref="object.GetHashCode()" /> method from IntelliSense.
     /// </summary>
-    /// <remarks>
-    /// Code that consumes implementations of this interface should expect one of two things:
-    /// <list type = "number">
-    ///   <item>When referencing the interface from within the same solution (project reference), you will still see the methods this interface is meant to hide.</item>
-    ///   <item>When referencing the interface through the compiled output assembly (external reference), the standard Object methods will be hidden as intended.</item>
-    /// </list>
-    /// See http://clarius.to/IFluentInterface for more information.
-    /// </remarks>
-    ///	<nuget id="IFluentInterface" />
     [EditorBrowsable(EditorBrowsableState.Never)]
-    public interface IFluentInterface
-    {
-        /// <summary>
-        /// Redeclaration that hides the <see cref="object.GetType()"/> method from IntelliSense.
-        /// </summary>
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        Type GetType();
+    int GetHashCode();
 
-        /// <summary>
-        /// Redeclaration that hides the <see cref="object.GetHashCode()"/> method from IntelliSense.
-        /// </summary>
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        int GetHashCode();
+    /// <summary>
+    ///   Redeclaration that hides the <see cref="object.ToString()" /> method from IntelliSense.
+    /// </summary>
+    [EditorBrowsable(EditorBrowsableState.Never)]
+    string ToString();
 
-        /// <summary>
-        /// Redeclaration that hides the <see cref="object.ToString()"/> method from IntelliSense.
-        /// </summary>
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        string ToString();
-
-        /// <summary>
-        /// Redeclaration that hides the <see cref="object.Equals(object)"/> method from IntelliSense.
-        /// </summary>
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        bool Equals(object obj);
-    }
+    /// <summary>
+    ///   Redeclaration that hides the <see cref="object.Equals(object)" /> method from IntelliSense.
+    /// </summary>
+    [EditorBrowsable(EditorBrowsableState.Never)]
+    bool Equals(object obj);
+  }
 }
