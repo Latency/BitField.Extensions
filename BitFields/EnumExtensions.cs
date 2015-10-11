@@ -1,14 +1,15 @@
-﻿// ****************************************************************************
-// * Project:  BitFields
-// * File:     EnumExtensions.cs
-// * Author:   Latency McLaughlin
-// * Date:     07/15/2014
-// ****************************************************************************
+﻿// *****************************************************************************
+// File:      EnumExtensions.cs
+// Solution:  BitFields
+// Date:      10/10/2015
+// Author:    Latency McLaughlin
+// Copywrite: Bio-Hazard Industries - 1997-2015
+// *****************************************************************************
+
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-
 
 namespace BitFields {
   public static class EnumExtensions {
@@ -18,7 +19,8 @@ namespace BitFields {
     /// <typeparam name="T"></typeparam>
     /// <param name="value">The value.</param>
     public static IEnumerable<T> GetAllItems<T>(this Enum value) where T : struct, IComparable, IFormattable, IConvertible {
-      return from object item in Enum.GetValues(typeof (T)) select (T) item;
+      return from object item in Enum.GetValues(typeof (T))
+             select (T) item;
     }
 
     /// <summary>
@@ -44,9 +46,10 @@ namespace BitFields {
       var type = typeof (T);
       return from field in type.GetFields()
              where !field.Name.Equals("value__")
-             select Convert.ToUInt64(field.GetRawConstantValue()) into value
-               where value != 0 && Contains(mask, value)
-               select (T) Enum.ToObject(type, value);
+             select Convert.ToUInt64(field.GetRawConstantValue())
+             into value
+             where value != 0 && Contains(mask, value)
+             select (T) Enum.ToObject(type, value);
     }
 
     /// <summary>
@@ -79,7 +82,7 @@ namespace BitFields {
     /// <param name="value"></param>
     /// <returns>A string of the official spelling of the enum name.</returns>
     public static string GetEnumDescription(this Enum value) {
-      var attributes = (DescriptionAttribute[]) value.GetType().GetField(value.ToString()).GetCustomAttributes(typeof(DescriptionAttribute), false);
+      var attributes = (DescriptionAttribute[]) value.GetType().GetField(value.ToString()).GetCustomAttributes(typeof (DescriptionAttribute), false);
       return attributes.Length > 0 ? attributes[0].Description : value.ToString();
     }
   }

@@ -44,10 +44,10 @@ namespace Tests {
         cb.AutoSize = true;
         cb.Location = (idx % 5) == 0 ? new Point(5, last.Location.Y + offset.Y) : new Point(last.Location.X + offset.X, last.Location.Y);
         cb.Name = "checkBox" + (idx + 1);
-        cb.Text = String.Format("Bit {0:D2}", (idx + 1));
+        cb.Text = $"Bit {(idx + 1):D2}";
         cb.Tag = (Flag) Enum.Parse(typeof(Flag), "F" + (idx + 1));
         cb.Click += Check_Changed;
-        toolTip1.SetToolTip(cb, String.Format("Check here to toggle '{0}'!", cb.Text));
+        toolTip1.SetToolTip(cb, $"Check here to toggle '{cb.Text}'!");
         last = cb;
         // Add control to form
         splitContainer1.Panel1.Controls.Add(last);
@@ -78,7 +78,7 @@ namespace Tests {
       ctx[1].Text = bitfield.ToString.Hex();
       ctx[2].Text = bitfield.ToString.Binary().PadLeft(64, '0');
       ctx[3].Text = EnumExtensions.GetAllSelectedItems<Flag>(bitfield.Mask).ToList().Aggregate(
-        String.Empty, (current, enm) => current + ((current.Length > 0 ? " | " : String.Empty) + enm.GetEnumDescription())
+        string.Empty, (current, enm) => current + ((current.Length > 0 ? " | " : string.Empty) + enm.GetEnumDescription())
       );
       SpinBox_ValueChanged(null, null);
     }
@@ -149,7 +149,7 @@ namespace Tests {
     /// <param name="e"></param>
     private void History_Click(object sender, EventArgs e) {
       var sVal = listBoxHistory.SelectedItem.ToString();
-      if (sVal == String.Empty)
+      if (sVal == string.Empty)
         return;
 
       var hBitField = new BitField { Mask = Convert.ToUInt64(sVal, 10) };

@@ -1,11 +1,12 @@
-// ****************************************************************************
-// * Project:  BitFields
-// * File:     BitField.cs
-// * Author:   Latency McLaughlin
-// * Date:     07/15/2014
-// ****************************************************************************
-using System;
+// *****************************************************************************
+// File:      BitField.cs
+// Solution:  BitFields
+// Date:      10/10/2015
+// Author:    Latency McLaughlin
+// Copywrite: Bio-Hazard Industries - 1997-2015
+// *****************************************************************************
 
+using System;
 
 namespace BitFields {
   /// <summary>
@@ -14,13 +15,10 @@ namespace BitFields {
   ///   ------------------
   ///   BitField()      // Constructor
   ///   BitField(ulong) // Copy Constructor
-  /// 
   ///   Mask            // Property used to hold the bitmask value.
-  /// 
   ///   ClearField()    // ClearField clears all contents of the Field.
   ///   FillField()     // FillField fills all contents of the Field.
   ///   SetField()      // Setting the specified flag and turning all other flags off.
-  /// 
   ///   Operations:
   ///   -----------------------
   ///   SetOn()         // Setting the specified flag and leaving all other flags unchanged.
@@ -28,7 +26,6 @@ namespace BitFields {
   ///   Toggle()        // Toggling the specified flag and leaving all other bits unchanged.
   ///   IsSet()         // IsSet checks if the specified flag is set/on in the Field.
   ///   IsEqual()       // Compares the bitmask with another and tests if equal.
-  ///
   ///   Conversion:
   ///   -----------------------
   ///   DecimalToFlag()      // Convert a decimal value to a Flag FlagsAttribute value.
@@ -38,6 +35,11 @@ namespace BitFields {
   /// </summary>
   public class BitField : IFluentInterface {
     /// <summary>
+    ///   Polymorphic class object
+    /// </summary>
+    public new IToString ToString;
+
+    /// <summary>
     ///   Contructor
     ///   Add all initialization here
     /// </summary>
@@ -46,6 +48,9 @@ namespace BitFields {
       ToString = new ToStringSwitchBoard(this);
     }
 
+    /// <summary>
+    ///   Copy Contructor
+    /// </summary>
     public BitField(ulong mask) {
       Mask = mask;
     }
@@ -157,7 +162,6 @@ namespace BitFields {
       return Mask == mask;
     }
 
-
     /// <summary>
     ///   Convert a decimal value to a Flag FlagsAttribute value.
     ///   Method is thread safe
@@ -175,46 +179,5 @@ namespace BitFields {
       }
       return tMsk;
     }
-
-    // ///////////////////////////////////////////////////////////////////////////////
-    // ToString override | Union 3-ways
-    // ///////////////////////////////////////////////////////////////////////////////
-    public interface IToString : IFluentInterface {
-      String Decimal();
-      String Hex();
-      String Binary();
-    }
-
-    public new IToString ToString;
-
-    private class ToStringSwitchBoard : IToString {
-      private readonly BitField _bitField;
-
-      public ToStringSwitchBoard(BitField bitField) {
-        _bitField = bitField;
-      }
-
-      /// <summary>
-      ///   Return a string representation of the Field in decimal (base10) notation.
-      /// </summary>
-      public String Decimal() {
-        return String.Format("{0}", _bitField.Mask);
-      }
-
-      /// <summary>
-      ///   Return a string representation of the Field in hexidecimal (base16) notation.
-      /// </summary>
-      public String Hex() {
-        return String.Format("{0:x16}", _bitField.Mask).ToUpper();
-      }
-
-      /// <summary>
-      ///   Return a string representation of the Field in binary (base2) notation.
-      /// </summary>
-      public String Binary() {
-        return Convert.ToString((Int64) _bitField.Mask, 2);
-      }
-    }
-
   }
 }

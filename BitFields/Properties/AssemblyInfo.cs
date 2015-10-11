@@ -1,15 +1,16 @@
-﻿// ****************************************************************************
-// * Project:  BitFields
-// * File:     AssemblyInfo.cs
-// * Author:   Latency McLaughlin
-// * Date:     07/15/2014
-// ****************************************************************************
+﻿// *****************************************************************************
+// File:      AssemblyInfo.cs
+// Solution:  BitFields
+// Date:      10/10/2015
+// Author:    Latency McLaughlin
+// Copywrite: Bio-Hazard Industries - 1997-2015
+// *****************************************************************************
 
 #region
 
 using System.Reflection;
-using System.Runtime.InteropServices;
 using System.Resources;
+using System.Runtime.InteropServices;
 
 #endregion
 
@@ -46,4 +47,4 @@ using System.Resources;
 
 [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyFileVersion("1.0.0.3")]
-[assembly: NeutralResourcesLanguageAttribute("en-US")]
+[assembly: NeutralResourcesLanguage("en-US")]
