@@ -4,7 +4,7 @@ BitFields
 .NET API library for enum extensions
 
 
-<p><img height=391 alt="Sample image" src="http://bio-hazard.us/bitfields/images/BitFields.jpg" width=600></p>
+<p><img height=391 alt="Sample image" src="http://bio-hazard.us/bitfields/images/BitFields.jpg" width=700></p>
 <ul>
   <li><a href="#introduction">Introduction</a>
   <li><a href="#background">Background</a>
