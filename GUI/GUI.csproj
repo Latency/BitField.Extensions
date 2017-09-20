@@ -36,6 +36,9 @@
     <StartupObject>BitFields_GUI.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AssemblyLoader, Version=1.1.0.0, Culture=neutral, PublicKeyToken=2ac72f26bae0cfb6, processorArchitecture=MSIL">
+      <HintPath>..\packages\AssemblyLoader.1.1.1\lib\net47\AssemblyLoader.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -53,12 +56,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\AssemblyInfo\AssemblyInfo\AssemblyInfo.csproj">
-      <Project>{958560db-a618-486d-8cf3-a6456c4482b1}</Project>
-      <Name>AssemblyInfo</Name>
-    </ProjectReference>
     <ProjectReference Include="..\BitFields\BitFields.csproj">
       <Project>{2b02918b-e2f4-448a-9b21-973f95dea9d2}</Project>
       <Name>BitFields</Name>

@@ -9,8 +9,9 @@
 using System;
 
 namespace BitFields {
+  /// <inheritdoc />
   /// <summary>
-  ///   The BisField class exposes the following methods:
+  ///   The BitField class exposes the following methods:
   ///   Initialization:
   ///   ------------------
   ///   BitField()      // Constructor
@@ -147,7 +148,7 @@ namespace BitFields {
     ///   false otherwise
     /// </returns>
     public bool IsSet(ulong mask, bool compareAll = false) {
-      return (!compareAll ? (Mask & mask) != 0 : (Mask & mask) == mask);
+      return !compareAll ? (Mask & mask) != 0 : (Mask & mask) == mask;
     }
 
     /// <summary>

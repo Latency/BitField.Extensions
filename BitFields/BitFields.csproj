@@ -11,7 +11,7 @@
     </ApplicationIcon>
     <AssemblyKeyContainerName />
     <AssemblyName>Bitfields</AssemblyName>
-    <AssemblyOriginatorKeyFile />
+    <AssemblyOriginatorKeyFile>snKey.pfx</AssemblyOriginatorKeyFile>
     <DefaultClientScript>JScript</DefaultClientScript>
     <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
     <DefaultTargetSchema>IE50</DefaultTargetSchema>
@@ -88,6 +88,9 @@
     <ErrorReport>prompt</ErrorReport>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
   <ItemGroup>
     <Compile Include="BitField.cs">
       <SubType>Code</SubType>
@@ -99,26 +102,24 @@
     <Compile Include="ToStringSwitchboard.cs" />
   </ItemGroup>
   <ItemGroup>
-    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="System">
-      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6\System.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="packages.config" />
+    <None Include="snKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- Code to merge the assemblies into one:setup.exe -->
+  <PropertyGroup>
+    <ILMergeTarget>..\NuGet\ILMerge.targets</ILMergeTarget>
+  </PropertyGroup>
+  <Target Name="ILMerge" />
+  <Import Project="$(ILMergeTarget)" Condition="Exists('$(ILMergeTarget)')" />
+  <Target Name="AfterBuild" DependsOnTargets="ILMerge" />
+  <Target Name="Clean">
+    <RemoveDir Directories="bin;obj" />
+    <RemoveDir Directories="..\NuGet\lib\;..\NuGet\bin\;..\NuGet\obj\" Condition="Exists('$(ILMergeTarget)')" />
+  </Target>
   <Import Project="..\packages\IFluentInterface.2.0.3\build\IFluentInterface.targets" Condition="Exists('..\packages\IFluentInterface.2.0.3\build\IFluentInterface.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
@@ -126,11 +127,4 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\IFluentInterface.2.0.3\build\IFluentInterface.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\IFluentInterface.2.0.3\build\IFluentInterface.targets'))" />
   </Target>
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
 </Project>

@@ -13,7 +13,7 @@ using System.Drawing;
 using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
-using AssemblyInfo;
+using AssemblyLoader;
 using BitFields;
 
 namespace BitFields_GUI {
