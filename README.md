@@ -1,8 +1,19 @@
-BitFields
-=========
+# BitFields.Extensions
 
-.NET API library for enum extensions
+### .NET API library for BitFields
 
+---
+
+* CREATED BY:   [Latency McLaughlin]
+* FRAMEWORK:    [.NET] v4.8 - v5.0, & Core v[3.1](https://www.microsoft.com/net/download/windows)
+* LANGUAGE:     [C#] (v8.0)
+* GFX SUBSYS:   [WinForms]
+* SUPPORTS:     [Visual Studio] 2019, 2017, 2015, 2013, 2012, 2010, 2008
+* UPDATED:      01/09/2021
+* VERSION:      [1.0.3](https://www.nuget.org/packages/BitField.Extensions/1.0.3/)
+* TAGS:         [API], [.NET], [C#], [WinForms]
+
+---
 
 <p><img height=391 alt="Sample image" src="http://bio-hazard.us/bitfields/images/BitFields.jpg" width=700></p>
 <ul>

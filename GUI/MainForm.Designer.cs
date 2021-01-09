@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Windows.Forms;
 
-namespace BitFields_GUI {
+namespace GUI {
   public sealed partial class MainForm {
 
     /// <summary>
@@ -429,6 +429,5 @@ namespace BitFields_GUI {
     private ToolTip toolTip1;
     private IContainer components;
     private PictureBox pictureBoxLogo;
-
   }
 }

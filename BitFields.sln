@@ -3,18 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BitFields", "BitFields\BitFields.csproj", "{2B02918B-E2F4-448A-9B21-973F95DEA9D2}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GUI", "GUI\GUI.csproj", "{32E2B0E5-3F0D-4132-A0FA-16D9BFE99B87}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BtFields-Core", "BitFields-Core\BtFields-Core.csproj", "{6910A029-9C6A-4DD8-B965-4D26A0D81230}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BtFields", "BitFields\BtFields.csproj", "{6910A029-9C6A-4DD8-B965-4D26A0D81230}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests-Core", "Tests-Core\Tests-Core.csproj", "{CBAB6A28-BBC9-4CE4-8842-8C32C58734C9}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{8EDF4429-251A-416D-BB68-93F227191BCF}"
-	ProjectSection(ProjectDependencies) = postProject
-		{2B02918B-E2F4-448A-9B21-973F95DEA9D2} = {2B02918B-E2F4-448A-9B21-973F95DEA9D2}
-	EndProjectSection
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests", "Tests\Tests.csproj", "{CBAB6A28-BBC9-4CE4-8842-8C32C58734C9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -22,10 +15,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{2B02918B-E2F4-448A-9B21-973F95DEA9D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2B02918B-E2F4-448A-9B21-973F95DEA9D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2B02918B-E2F4-448A-9B21-973F95DEA9D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2B02918B-E2F4-448A-9B21-973F95DEA9D2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{32E2B0E5-3F0D-4132-A0FA-16D9BFE99B87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{32E2B0E5-3F0D-4132-A0FA-16D9BFE99B87}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{32E2B0E5-3F0D-4132-A0FA-16D9BFE99B87}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -38,10 +27,6 @@ Global
 		{CBAB6A28-BBC9-4CE4-8842-8C32C58734C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CBAB6A28-BBC9-4CE4-8842-8C32C58734C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CBAB6A28-BBC9-4CE4-8842-8C32C58734C9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8EDF4429-251A-416D-BB68-93F227191BCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8EDF4429-251A-416D-BB68-93F227191BCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8EDF4429-251A-416D-BB68-93F227191BCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8EDF4429-251A-416D-BB68-93F227191BCF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
