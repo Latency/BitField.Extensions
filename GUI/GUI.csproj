@@ -2,21 +2,14 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net5.0-windows</TargetFramework>
+    <TargetFramework>net9.0-windows</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
-    <SignAssembly>true</SignAssembly>
-    <AssemblyOriginatorKeyFile>..\..\..\snKey.snk</AssemblyOriginatorKeyFile>
-    <ApplicationIcon>..\..\..\project.ico</ApplicationIcon>
     <StartupObject>GUI.Program</StartupObject>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AssemblyLoader" Version="1.1.3" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\BitFields\BtFields.csproj" />
+    <ProjectReference Include="..\src\BitField.Extensions.csproj" />
   </ItemGroup>
 
 </Project>

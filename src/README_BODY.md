@@ -1,25 +1,3 @@
-﻿# BitField.Extensions
-### .NET Library For BitField & Enum Extensions
-
-
----
-
-
-|              |   Description                                                  |
-|--------------|----------------------------------------------------------------|
-| CREATED BY:  | Latency McLaughlin                                                     |
-| UPDATED:     | 4/9/2024                          |
-| FRAMEWORK:   | [net452], [netstandard2.0], [netstandard2.1] ([Latest])                                |
-| LANGUAGE:    | [C#] preview                                            |
-| OUTPUT TYPE: | Library [API]                                            |
-| SUPPORTS:    | [Visual Studio]                                                |
-| GFX SUBSYS:  | [None]                                                     |
-| TAGS:        | [BitField BitFields C# Enum Enums Library]                                                |
-| STATUS       | [![.NET](https://github.com/Latency/BitField.Extensions/actions/workflows/dotnet.yml/badge.svg)](https://github.com/Latency/BitField.Extensions/actions/workflows/dotnet.yml)                                                     |
-| LICENSE:     | [![License](https://img.shields.io/badge/MIT-License-yellowgreen.svg)](https://github.com/Latency/BitField.Extensions/blob/master/MIT-LICENSE.txt)                                                    |
-| VERSION:     | [![GitHub Release](https://img.shields.io/badge/Version-1.0.4-blue)](https://github.com/Latency/BitField.Extensions/releases)                                                    |
-
-
 <p><img height=391 alt="Sample image" src="http://bio-hazard.us/bitfields/images/BitFields.jpg" width=700></p>
 
 <hr>
