@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="GUI/GUI.csproj" />
+  <Project Path="src/BitField.Extensions.csproj" />
+  <Project Path="Unit Tests/Unit Tests.csproj" />
+</Solution>

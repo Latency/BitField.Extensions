@@ -1,17 +1,18 @@
 ﻿// ****************************************************************************
-// Project:  BtFields
+// Project:  BitField.Extensions
 // File:     IToString.cs
 // Author:   Latency McLaughlin
-// Date:     01/09/2021
+// Date:     10/16/2026
 // ****************************************************************************
 
-namespace BitFields {
-    // ///////////////////////////////////////////////////////////////////////////////
-    // ToString override | Union 3-ways
-    // ///////////////////////////////////////////////////////////////////////////////
-    public interface IToString {
-        string Decimal();
-        string Hex();
-        string Binary();
-    }
+namespace BitField.Extensions;
+
+// ///////////////////////////////////////////////////////////////////////////////
+// ToString override | Union 3-ways
+// ///////////////////////////////////////////////////////////////////////////////
+public interface IToString
+{
+    string Decimal();
+    string Hex();
+    string Binary();
 }

@@ -1,15 +1,15 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <OutputType>WinExe</OutputType>
-    <TargetFramework>net9.0-windows</TargetFramework>
-    <UseWindowsForms>true</UseWindowsForms>
-    <StartupObject>GUI.Program</StartupObject>
-    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net11.0-windows</TargetFramework>
+		<Description>BitFields Application</Description>
+		<OutputType>WinExe</OutputType>
+		<UseWindowsForms>true</UseWindowsForms>
+		<StartupObject>GUI.Program</StartupObject>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\src\BitField.Extensions.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\src\BitField.Extensions.csproj" />
+	</ItemGroup>
 
 </Project>
