@@ -1,16 +1,16 @@
-﻿// 04****************************************************************************
+﻿// ****************************************************************************
 // Project:  Unit Tests
 // File:     T_EnumExtensions.cs
 // Author:   Latency McLaughlin
-// Date:     04/09/2024
+// Date:     10/16/2026
 // ****************************************************************************
 
-using System;
-using System.Linq;
-using BitFields;
+using BitField.Extensions;
+using Unit_Tests.Enums;
 
 namespace Unit_Tests;
-public partial class Tests
+
+public class Tests
 {
     [Fact]
     public void GetAllItems()
@@ -22,8 +22,8 @@ public partial class Tests
         Assert.Equal(65, collectionB.Count);
 
         #if DEBUG
-      foreach (var enm in collectionB)
-        Console.WriteLine(enm.GetEnumDescription());
+        foreach (var enm in collectionB)
+            Console.WriteLine(enm.GetEnumDescription());
         #endif
     }
 
@@ -35,24 +35,24 @@ public partial class Tests
         var collectionA = MyEnum.Test5.GetAllSelectedItems<MyEnum>().ToList();
         Assert.Equal(1, collectionA.Count);
         #if DEBUG
-      Console.WriteLine("Test ColectionA:  Single");
-      foreach (var enm in collectionA)
+        Console.WriteLine("Test ColectionA:  Single");
+          foreach (var enm in collectionA)
         Console.WriteLine(enm.GetEnumDescription());
         #endif
 
         var collectionB = (MyEnum.Test4 | MyEnum.Test3).GetAllSelectedItems<MyEnum>().ToList();
         Assert.Equal(2, collectionB.Count);
         #if DEBUG
-      Console.WriteLine("Test ColectionB:  Composite");
-      foreach (var enm in collectionB)
+        Console.WriteLine("Test ColectionB:  Composite");
+          foreach (var enm in collectionB)
         Console.WriteLine(enm.GetEnumDescription());
         #endif
         // Make sure the field (0) is not being transposed from internal ordered mapping.
         var collectionC = MyEnum.Test0.GetAllSelectedItems<MyEnum>().ToList();
         Assert.Equal(1, collectionC.Count);
         #if DEBUG
-      Console.WriteLine("Test ColectionC:  Single");
-      foreach (var enm in collectionC)
+        Console.WriteLine("Test ColectionC:  Single");
+          foreach (var enm in collectionC)
         Console.WriteLine(enm.GetEnumDescription());
         #endif
 
@@ -89,19 +89,4 @@ public partial class Tests
 
     [Fact]
     public void GetEnumDescription() => Assert.Equal("Test1", MyEnum.Test1.GetEnumDescription());
-
-
-    /// <summary>
-    ///     Create dummy enum to test against internal mapping of values and descriptions accordingly.
-    /// </summary>
-    [Flags]
-    private enum MyEnum
-    {
-        Test0 = 1 << 0,
-        Test1 = 1 << 1,
-        Test2 = 1 << 2,
-        Test3 = 1 << 3,
-        Test4 = 1 << 4,
-        Test5 = 1 << 5
-    }
 }

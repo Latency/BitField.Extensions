@@ -1,13 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<OutputType>Library</OutputType>
-		<TargetFrameworks>net452;netstandard2.0;netstandard2.1</TargetFrameworks>
-		<Version>1.0.4</Version>
+		<TargetFrameworks>net45;net451;net452;net46;net461;net462;net47;net471;net472;net48;net481;netstandard2.0;netstandard2.1;net8.0;net9.0;net10.0;net11.0</TargetFrameworks>
+		<Version>1.0.5</Version>
 		<Description>.NET Library For BitField &amp; Enum Extensions</Description>
-		<PackageTags>BitField BitFields C# Enum Enums Library</PackageTags>
-		<PackageReleaseNotes>Update target framework to include .NET 9.0</PackageReleaseNotes>
-		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<PackageTags>BitFields;;C#;Enums;Library</PackageTags>
+		<PackageReleaseNotes>Update target framework to include .NET 11.0</PackageReleaseNotes>
 		<PackageId>BitField.Extensions</PackageId>
 	</PropertyGroup>
 
