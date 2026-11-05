@@ -17,7 +17,7 @@
 
 ## Screenshots
 
-![Sample image](http://bio-hazard.us/bitfields/images/BitFields.jpg)
+![Screenshot](Resources/BitFields.jpg)
 
 ## Introduction
 
